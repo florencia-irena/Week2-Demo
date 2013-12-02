@@ -7,11 +7,14 @@
     html, body {
       margin: 0;
       padding: 0;
-      height: 100%;
+      height: 956px;
     }
     #instructions {
-      height: 220px;
-      border: 0.5em solid blue;
+      position: absolute;
+      width: 1600px;
+      height: 350px;
+      left: 180px;
+      border: 10px solid blue;
       background-color: black;
       color: white;
       padding: 20px;
@@ -19,14 +22,17 @@
     }
     #buttons {
         display: block;
-        top: 220px;
-        left: 10px;
+        position: absolute;
+        height: 956px;
         padding: 10px;
+        top: 0px;
+        left: 0px;
         background-color: green;
         opacity:0.6;
     }
   </style>
   <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" ></script>
   <script type="text/javascript" src="tutorial.js"></script>
 </head>

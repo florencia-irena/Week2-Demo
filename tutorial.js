@@ -10,7 +10,7 @@ function Lesson(title, blurb, divID) {
 }
 
 //TODO: Create Lesson Variables for all seven lessons
-var lesson0 = new Lesson("Introduction", "replace with blurb0", "lesson0-intro");
+var lesson0 = new Lesson("Introduction", "<<replace with blurb0>>", "lesson0-intro");
 lesson0.update = updateIntro;
 var lesson1 = new Lesson("GME API", "The Google Maps Engine API (Application Programming Interface) is a RESTful API where resources are represented as JavaScript Object Notation (JSON) making it simple for developers to create, share and publish their own custom Google maps and develop applications for a number of platforms. <br><br>
 The interface allows users to Create, Read, Upload, Update and Delete data from custom tables using simple HTTP requests.<br><br>
@@ -18,14 +18,17 @@ As stated in the introduction, this tutorial will focus on reading public data a
 lesson1.update = updateIntro;
 var lesson2 = new Lesson("API Key", "For this tutorial you will need an API key in order to access the data. To obtain an API Key, go to the <a href=https://cloud.google.com/console>Google Cloud Console</a>. Click on APIs & Auth and turn the Google Maps Engine API to ON.
 <br>Next, you will need to register your app as a Web Application through the Registered Apps tab. The API key can be found under the Server/Browser Key dropdown.", "lesson2-apikey");
+var lesson1 = new Lesson("GME API", "<<replace with blurb1>>", "lesson1-gmeapi");
+lesson1.update = updateIntro;
+var lesson2 = new Lesson("API Key", "<<replace with blurb2>>", "lesson2-apikey");
 lesson2.update = updateIntro;
-var lesson3 = new Lesson("Get Table", "replace with blurb3", "lesson3-gettable");
+var lesson3 = new Lesson("Get Table", "<<replace with blurb3>>", "lesson3-gettable");
 lesson3.update = updateIntro;
-var lesson4 = new Lesson("List Features", "replace with blurb4", "lesson4-featureslist");
+var lesson4 = new Lesson("List Features", "<<replace with blurb4>>", "lesson4-featureslist");
 lesson4.update = updateIntro;
-var lesson5 = new Lesson("Javascript", "replace with blurb5", "lesson5-javascript");
+var lesson5 = new Lesson("Javascript", "<<replace with blurb5>>", "lesson5-javascript");
 lesson5.update = updateIntro;
-var lesson6 = new Lesson("Other Methods", "replace with blurb6", "lesson6-othermethods");
+var lesson6 = new Lesson("Other Methods", "<<replace with blurb6>>", "lesson6-othermethods");
 lesson6.update = updateIntro;
 
 
@@ -47,7 +50,7 @@ google.maps.event.addDomListener(window, 'load', function initialize(){
   }
   createInputOutput();
   //set the initial page to be the introduction
-  lessonArray[0].update();
+  //lessonArray[0].update();
 });
 
 function makeButton(string, i){
@@ -68,7 +71,7 @@ function makeButton(string, i){
 function buttonStyle(buttonProp, i){
   buttonProp.style.display = ' ';
   buttonProp.style.backgroundColor = 'yellow';
-  buttonProp.style.width = '150px';
+  buttonProp.style.width = '160px';
   buttonProp.style.height = '40px';
   buttonProp.style.fontSize = '20px';
   buttonProp.style.opacity = 0.8;
@@ -115,11 +118,25 @@ function createInputOutput() {
     newOutput.class = "text-output"
     newOutput.id = "output" + i;
     lesson.appendChild(newOutput);
+    //create the divs of input output explanation
+    var inputExp = document.createElement("div");
+    inputExp.id = "input-explanation" + i;
+    lesson.appendChild(inputExp);
+    var outputExp = document.createElement("div");
+    outputExp.id = "output-explanation" + i;
+    lesson.appendChild(outputExp);
+
     //style the areas
     var inputElement = document.getElementById("input" + i);
     inputStyle(inputElement, i);
     var outputElement = document.getElementById("output" + i);
     outputStyle(outputElement, i)
+    var inputExpElement = document.getElementById("input-explanation" + i);
+    inputExpElement.innerHTML = "Please type your input below. Press enter to submit the input.";
+    inputExplanationStyle(inputExpElement, i);
+    var outputExpElement = document.getElementById("output-explanation" + i);
+    outputExpElement.innerHTML = "Output";
+    outputExplanationStyle(outputExpElement, i);
   }
 }
 
@@ -128,11 +145,10 @@ function inputStyle(element, i) {
   element.style.backgroundColor = 'white';
   element.style.color = 'black';
   element.style.fontSize = '18px';
-  element.style.width = '400px';
-  element.style.height = '400px';
-  element.style.right = '400px';
-  element.style.left = '200px';
-  element.style.bottom = '0px';
+  element.style.width = '820px';
+  element.style.height = '510px';
+  element.style.left = '185px';
+  element.style.top = '460px';
   element.style.resize = 'none';
 }
 
@@ -141,11 +157,36 @@ function outputStyle(element, i) {
   element.style.backgroundColor = 'black';
   element.style.color = 'white';
   element.style.fontSize = '18px';
-  element.style.width = '400px';
-  element.style.height = '400px';
-  element.style.right = '0px';
-  element.style.left = '600px';
-  element.style.bottom = '0px';
+  element.style.width = '825px';
+  element.style.height = '515px';
+  element.style.left = '1015px';
+  element.style.top = '460px';
+}
+
+function inputExplanationStyle(element, i){
+  element.style.position = 'absolute';
+  element.style.backgroundColor = 'yellow';
+  element.style.color = 'black';
+  element.style.fontSize = '20px';
+  element.style.width = '815px';
+  element.style.height = '35px';
+  element.style.left = '185px';
+  element.style.top = '415px';
+  element.style.border = '5px solid red'
+  element.style.opacity = 0.7;
+}
+
+function outputExplanationStyle(element, i){
+  element.style.position = 'absolute';
+  element.style.backgroundColor = 'yellow';
+  element.style.color = 'black';
+  element.style.fontSize = '20px';
+  element.style.width = '815px';
+  element.style.height = '35px';
+  element.style.left = '1015px';
+  element.style.top = '415px';
+  element.style.border = '5px solid red'
+  element.style.opacity = 0.7;
 }
 
 function updateIntro() {
