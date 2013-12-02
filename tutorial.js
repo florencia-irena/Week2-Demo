@@ -31,24 +31,8 @@ google.maps.event.addDomListener(window, 'load', function initialize(){
   for (var i=0; i<lessonsClass.length; i++){
     makeButton(lessonsClass[i].id, i);
   }
-  
-  //create refresh button
-  var button = document.getElementById("buttons");
-  var newButton = document.createElement("input");
-  newButton.type = "button";
-  newButton.id = "refresh";
-  newButton.value = "Refresh";
-  newButton.onclick = function(){
-    refresh();
-  };
-  button.appendChild(newButton);
-  
-  //button.innerHTML = button.innerHTML + "<input type=\"button\" id=\"refresh\" value=\"Refresh\" onclick=\"refresh()\"></input><br>";
-  var buttonElement = document.getElementById("refresh");
-  buttonStyle (buttonElement, lessonsClass.length);
-
-  //Set the initial page to be introduction
-  lessonArray[0].refresh();
+  //set the initial page to be the introduction
+  lessonArray[0].update();
 });
 
 function makeButton(string, i){
