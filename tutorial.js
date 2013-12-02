@@ -22,6 +22,10 @@ var lesson6 = ("Other Methods", "<<replace with blurb6>>", "lesson6-othermethods
 //The Lesson Array
 var lessonArray = [lesson0, lesson1, lesson2, lesson3, lesson4, lesson5, lesson6];
 
+
+//The color array
+var color = ['red', 'blue', 'purple'];
+
 //Finding objects with class "lesson"
 var lessonsClass = document.getElementsByClassName("lesson");
 
@@ -42,7 +46,7 @@ function makeButton(string, i){
   newButton.id = string+"button";
   newButton.value = lessonArray[i].title;
   newButton.onclick = function(){
-    lessonArray[i].update()
+    lessonArray[i].update();
   };
   button.appendChild(newButton);
   button.appendChild(document.createElement("br"));
