@@ -11,4 +11,25 @@ function Lesson(title, blurb, divID) {
 
 //TODO: Create Lesson Variables for all seven lessons
 
-function clear();
+
+//The Lesson Array
+var lessonArray = [lesson0, lesson1, lesson2];
+
+//Finding objects with class "lesson"
+var lessonsClass = document.getElementsByClassName("lesson");
+
+function clear(){
+  for (var i=0; i<lessonArray.length; i++){
+    if(lessonArray[i].title === document.title){
+      break;
+    }
+  }
+  $("#output"+i).empty();
+}
+
+//BLOCKING ALL DIVS AUTOMATICALLY
+function hideAll() {
+  for (var i=0; i<lessonsClass.length; i++){
+    document.getElementById(lessonsClass[i].id).style.display = "none";
+  }
+}
