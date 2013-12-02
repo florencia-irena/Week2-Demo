@@ -10,19 +10,19 @@ function Lesson(title, blurb, divID) {
 }
 
 //TODO: Create Lesson Variables for all seven lessons
-var lesson0 = ("Introduction", "<<replace with blurb0>>", "lesson0-intro");
+var lesson0 = new Lesson("Introduction", "replace with blurb0", "lesson0-intro");
 lesson0.update = updateIntro;
-var lesson1 = ("GME API", "<<replace with blurb1>>", "lesson1-gmeapi");
+var lesson1 = new Lesson("GME API", "replace with blurb1", "lesson1-gmeapi");
 lesson1.update = updateIntro;
-var lesson2 = ("API Key", "<<replace with blurb2>>", "lesson2-apikey");
+var lesson2 = new Lesson("API Key", "replace with blurb2", "lesson2-apikey");
 lesson2.update = updateIntro;
-var lesson3 = ("Get Table", "<<replace with blurb3>>", "lesson3-gettable");
+var lesson3 = new Lesson("Get Table", "replace with blurb3", "lesson3-gettable");
 lesson3.update = updateIntro;
-var lesson4 = ("List Features", "<<replace with blurb4>>", "lesson4-featureslist");
+var lesson4 = new Lesson("List Features", "replace with blurb4", "lesson4-featureslist");
 lesson4.update = updateIntro;
-var lesson5 = ("Javascript", "<<replace with blurb5>>", "lesson5-javascript");
+var lesson5 = new Lesson("Javascript", "replace with blurb5", "lesson5-javascript");
 lesson5.update = updateIntro;
-var lesson6 = ("Other Methods", "<<replace with blurb6>>", "lesson6-othermethods");
+var lesson6 = new Lesson("Other Methods", "replace with blurb6", "lesson6-othermethods");
 lesson6.update = updateIntro;
 
 
@@ -101,7 +101,7 @@ function hideAll() {
 //Should be called initially to dynamically create divs for each lesson
 function createInputOutput() {
   for (var i = 0; i < lessonArray.length; i++) {
-    var lesson = document.getElementById = lessonArray[i].divID;
+    var lesson = document.getElementById(lessonArray[i].divID);
     //add the text area
     var newInput = document.createElement("textarea");
     newInput.class = "text-input";
@@ -121,26 +121,31 @@ function createInputOutput() {
 }
 
 function inputStyle(element, i) {
+  element.style.position = 'absolute';
   element.style.backgroundColor = 'white';
   element.style.color = 'black';
   element.style.fontSize = '18px';
   element.style.width = '400px';
   element.style.height = '400px';
   element.style.right = '400px';
+  element.style.left = '200px';
   element.style.bottom = '0px';
+  element.style.resize = 'none';
 }
 
 function outputStyle(element, i) {
+  element.style.position = 'absolute';
   element.style.backgroundColor = 'black';
   element.style.color = 'white';
   element.style.fontSize = '18px';
   element.style.width = '400px';
   element.style.height = '400px';
   element.style.right = '0px';
+  element.style.left = '600px';
   element.style.bottom = '0px';
 }
 
-function updateIntro {
+function updateIntro() {
   document.title = lessonArray[0].title;
   document.getElementById(lessonArray[0].divID).style.display = "block";
   document.getElementById("instructions").innerHTML = lessonArray[0].blurb;
