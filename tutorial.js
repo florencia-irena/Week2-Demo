@@ -112,11 +112,25 @@ function createInputOutput() {
     newOutput.class = "text-output"
     newOutput.id = "output" + i;
     lesson.appendChild(newOutput);
+    //create the divs of input output explanation
+    var inputExp = document.createElement("div");
+    inputExp.id = "input-explanation" + i;
+    lesson.appendChild(inputExp);
+    var outputExp = document.createElement("div");
+    outputExp.id = "output-explanation" + i;
+    lesson.appendChild(outputExp);
+
     //style the areas
     var inputElement = document.getElementById("input" + i);
     inputStyle(inputElement, i);
     var outputElement = document.getElementById("output" + i);
     outputStyle(outputElement, i)
+    var inputExpElement = document.getElementById("input-explanation" + i);
+    inputExpElement.innerHTML = "Please type your input below. Press enter to submit the input.";
+    inputExplanationStyle(inputExpElement, i);
+    var outputExpElement = document.getElementById("output-explanation" + i);
+    outputExpElement.innerHTML = "Output";
+    outputExplanationStyle(outputExpElement, i);
   }
 }
 
@@ -125,10 +139,11 @@ function inputStyle(element, i) {
   element.style.backgroundColor = 'white';
   element.style.color = 'black';
   element.style.fontSize = '18px';
-  element.style.width = '400px';
-  element.style.height = '400px';
-  element.style.left = '180px';
-  element.style.bottom = '0px';
+  element.style.width = '820px';
+  element.style.height = '510px';
+  element.style.left = '185px';
+  element.style.top = '460px';
+  element.style.resize = 'none';
 }
 
 function outputStyle(element, i) {
@@ -136,10 +151,36 @@ function outputStyle(element, i) {
   element.style.backgroundColor = 'black';
   element.style.color = 'white';
   element.style.fontSize = '18px';
-  element.style.width = '400px';
-  element.style.height = '400px';
-  element.style.right = '0px';
-  element.style.bottom = '0px';
+  element.style.width = '825px';
+  element.style.height = '515px';
+  element.style.left = '1015px';
+  element.style.top = '460px';
+}
+
+function inputExplanationStyle(element, i){
+  element.style.position = 'absolute';
+  element.style.backgroundColor = 'yellow';
+  element.style.color = 'black';
+  element.style.fontSize = '20px';
+  element.style.width = '815px';
+  element.style.height = '35px';
+  element.style.left = '185px';
+  element.style.top = '415px';
+  element.style.border = '5px solid red'
+  element.style.opacity = 0.7;
+}
+
+function outputExplanationStyle(element, i){
+  element.style.position = 'absolute';
+  element.style.backgroundColor = 'yellow';
+  element.style.color = 'black';
+  element.style.fontSize = '20px';
+  element.style.width = '815px';
+  element.style.height = '35px';
+  element.style.left = '1015px';
+  element.style.top = '415px';
+  element.style.border = '5px solid red'
+  element.style.opacity = 0.7;
 }
 
 function updateIntro() {
