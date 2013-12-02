@@ -11,12 +11,19 @@ function Lesson(title, blurb, divID) {
 
 //TODO: Create Lesson Variables for all seven lessons
 var lesson0 = ("Introduction", "<<replace with blurb0>>", "lesson0-intro");
+lesson0.update = updateIntro;
 var lesson1 = ("GME API", "<<replace with blurb1>>", "lesson1-gmeapi");
+lesson1.update = updateIntro;
 var lesson2 = ("API Key", "<<replace with blurb2>>", "lesson2-apikey");
+lesson2.update = updateIntro;
 var lesson3 = ("Get Table", "<<replace with blurb3>>", "lesson3-gettable");
+lesson3.update = updateIntro;
 var lesson4 = ("List Features", "<<replace with blurb4>>", "lesson4-featureslist");
+lesson4.update = updateIntro;
 var lesson5 = ("Javascript", "<<replace with blurb5>>", "lesson5-javascript");
+lesson5.update = updateIntro;
 var lesson6 = ("Other Methods", "<<replace with blurb6>>", "lesson6-othermethods");
+lesson6.update = updateIntro;
 
 
 //The Lesson Array
@@ -81,4 +88,10 @@ function outputStyle(element, i) {
   element.style.height = '400px';
   element.style.right = '0px';
   element.style.bottom = '0px';
+}
+
+function updateIntro {
+  document.title = lessonArray[0].title;
+  document.getElementById(lessonArray[0].divID).style.display = "block";
+  document.getElementById("instructions").innerHTML = lessonArray[0].blurb;
 }
