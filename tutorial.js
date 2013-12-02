@@ -20,7 +20,7 @@ var lesson6 = ("Other Methods", "<<replace with blurb6>>", "lesson6-othermethods
 
 
 //The Lesson Array
-var lessonArray = [lesson0, lesson1, lesson2];
+var lessonArray = [lesson0, lesson1, lesson2, lesson3, lesson4, lesson5, lesson6];
 
 //Finding objects with class "lesson"
 var lessonsClass = document.getElementsByClassName("lesson");
@@ -39,4 +39,46 @@ function hideAll() {
   for (var i=0; i<lessonsClass.length; i++){
     document.getElementById(lessonsClass[i].id).style.display = "none";
   }
+}
+
+//Should be called initially to dynamically create divs for each lesson
+function createInputOutput() {
+  for (var i = 0; i < lessonArray.length; i++) {
+    var lesson = document.getElementById = lessonArray[i].divID;
+    //add the text area
+    var newInput = document.createElement("textarea");
+    newInput.class = "text-input";
+    newInput.id = "input" + i;
+    lesson.appendChild(newInput);
+    //add the output area
+    var newOutput = document.createElement("div");
+    newOutput.class = "text-output"
+    newOutput.id = "output" + i;
+    lesson.appendChild(newOutput);
+    //style the areas
+    var inputElement = document.getElementById("input" + i);
+    inputStyle(inputElement, i);
+    var outputElement = document.getElementById("output" + i);
+    outputStyle(outputElement, i)
+  }
+}
+
+function inputStyle(element, i) {
+  element.style.backgroundColor = 'white';
+  element.style.color = 'black';
+  element.style.fontSize = '18px';
+  element.style.width = '400px';
+  element.style.height = '400px';
+  element.style.right = '400px';
+  element.style.bottom = '0px';
+}
+
+function outputStyle(element, i) {
+  element.style.backgroundColor = 'black';
+  element.style.color = 'white';
+  element.style.fontSize = '18px';
+  element.style.width = '400px';
+  element.style.height = '400px';
+  element.style.right = '0px';
+  element.style.bottom = '0px';
 }
