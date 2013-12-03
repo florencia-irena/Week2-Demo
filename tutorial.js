@@ -359,12 +359,14 @@ function executeCurlInput(){
 
 function getFeaturesCurl(addressString){
   var $data = $("#output" + activeIndex);
+  var data = document.getElementById("output" + activeIndex);
+  data.style.whiteSpace = 'pre';
   //clear the table first
   var address = "https://www.googleapis.com/mapsengine/v1/tables/01512215508764088245-12798225287603138914/features?version=published&key=AIzaSyAllwffSbT4nwGqtUOvt7oshqSHowuTwN0";
   //console.log("abc"+ addressString + "abc");
   $data.empty();
   jQuery.ajax({
-    url: addressString,
+    'url': address,
     //url: "https://www.googleapis.com/mapsengine/v1/tables/01512215508764088245-12798225287603138914/features?version=published&key=AIzaSyAllwffSbT4nwGqtUOvt7oshqSHowuTwN0",
     dataType: 'json',
     success: function(resource) {
