@@ -405,19 +405,17 @@ function executeCurlInput(){
         alert("You entered wrong command-line. See the tutorial again.");
       } else {
         var address="";
-        address += string[i];
         i = i+1;
         for(; i<string.length; i++){
-          address += string[i];
           if(string[i] == '\"' || string[i] == ' '){
             break;
           }
+          address += string[i];
         }
         //if not closing the "
         if (string[i] !== '\"'){
           alert("You entered wrong command-line. See the tutorial again.");
         } else {
-          //var addressString = address.join("");
           getFeaturesCurl(address);
         }
       }
@@ -427,23 +425,20 @@ function executeCurlInput(){
 
 function getFeaturesCurl(addressString){
   var $data = $("#output" + activeIndex);
-  //clear the table first
-  var address = "https://www.googleapis.com/mapsengine/v1/tables/01512215508764088245-12798225287603138914/features?version=published&key=AIzaSyAllwffSbT4nwGqtUOvt7oshqSHowuTwN0";
-  //console.log("abc"+ addressString + "abc");
+  var data = document.getElementById("output" + activeIndex);
+  data.style.whiteSpace = 'pre';
+  
   $data.empty();
   jQuery.ajax({
     url: addressString,
-    //url: "https://www.googleapis.com/mapsengine/v1/tables/01512215508764088245-12798225287603138914/features?version=published&key=AIzaSyAllwffSbT4nwGqtUOvt7oshqSHowuTwN0",
     dataType: 'json',
     success: function(resource) {
       var resourceString = JSON.stringify(resource, null, 2);
-      console.log("yes!");
       $data.append("\n");
       $data.append(resourceString);
       $data.append("\n");
     },
     error: function(response) {
-      /*
       response = JSON.parse(response.responseText);
       var errorMess = response.error.errors[0];
       if (errorMess.reason === "authError") {
@@ -457,8 +452,8 @@ function getFeaturesCurl(addressString){
       var responseString = JSON.stringify(errorMess, null, 2);
       $data.append(responseString);
       $data.append("\n");
-      */
-      console.log("no!");
+    
     }
   });
 }
+
