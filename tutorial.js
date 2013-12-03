@@ -187,6 +187,7 @@ function inputStyle(element, i) {
   element.style.top = (winHeight * 34 / 100) + 100 + 'px'
   element.style.resize = 'none';
   element.style.border = '2px solid black'
+  element.style.overflowY = 'scroll';
 }
 
 function outputStyle(element, i) {
@@ -199,6 +200,7 @@ function outputStyle(element, i) {
   element.style.left = 180 + (winWidth - 180)/2 - 4 + 'px';
   element.style.top = (winHeight * 34 / 100) + 100 + 'px'
   element.style.border = '5px solid black'
+  element.style.overflowY = 'scroll';
 }
 
 function inputExplanationStyle(element, i){
