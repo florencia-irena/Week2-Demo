@@ -17,7 +17,7 @@ The interface allows users to Create, Read, Upload, Update and Delete data from 
 As stated in the introduction, this tutorial will focus on reading public data and customising the JSON resources.", "lesson1-gmeapi");
 lesson1.update = updateIntro;
 var lesson2 = new Lesson("API Key", "For this tutorial you will need an API key in order to access the data. To obtain an API Key, go to the <a href=https://cloud.google.com/console>Google Cloud Console</a>. Click on APIs & Auth and turn the Google Maps Engine API to ON.
-<br>Next, you will need to register your app as a Web Application through the Registered Apps tab. The API key can be found under the Server/Browser Key dropdown.", "lesson2-apikey");
+<br>Next, you will need to register your app as a Web Application through the Registered Apps tab. The API key can be found under the Server/Browser Key dropdown.<br><br>Once you have the key, paste it in the input box below.", "lesson2-apikey");
 var lesson1 = new Lesson("GME API", "<<replace with blurb1>>", "lesson1-gmeapi");
 lesson1.update = updateIntro;
 var lesson2 = new Lesson("API Key", "<<replace with blurb2>>", "lesson2-apikey");
