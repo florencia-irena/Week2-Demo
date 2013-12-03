@@ -272,6 +272,14 @@ function updateAPIKey() {
   document.title = lessonArray[activeIndex].title;
   document.getElementById(lessonArray[activeIndex].divID).style.display = "block";
   document.getElementById("instructions").innerHTML = lessonArray[activeIndex].blurb;
+  var inputBox = $('#input' + activeIndex);
+  console.log(inputBox);
+  inputBox.keypress(function(e) {
+    console.log("A key was pressed!");
+    if (e.keyCode == 13) {
+      console.log("Hooray");
+    }
+  });
 }
 
 //*****************THE Get Table FUNCTIONS**********************//
