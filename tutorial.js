@@ -1,6 +1,10 @@
 //Javascript file for tutorial
 //THE GLOBAL VARIABLES
 
+//global window size variables used in dynamic sizing
+var winWidth = $(window).width();
+var winHeight = $(window).height();
+
 //object to store lesson information
 function Lesson(title, blurb, divID) {
   this.title = title;
@@ -73,6 +77,14 @@ google.maps.event.addDomListener(window, 'load', function initialize(){
     makeButton(lessonsClass[i].id, i);
   }
   createInputOutput();
+  //dynamically changing the divs
+
+  document.getElementById('instructions').style.width = winWidth - 240 + 'px';
+  console.log('window height: ' + $( window ).height());
+  console.log('document height: ' + $(document).height());
+  console.log('window width: ' + $( window ).width());
+  console.log('document width: ' + $(document).width());
+
   //set the initial page to be the introduction
   lessonArray[activeIndex].update();
 });
@@ -169,10 +181,10 @@ function inputStyle(element, i) {
   element.style.backgroundColor = 'white';
   element.style.color = 'black';
   element.style.fontSize = '18px';
-  element.style.width = '822px';
-  element.style.height = '57%'; /* 517px */
+  element.style.width = (winWidth - 180)/2 - 4 + 'px';
+  element.style.height = winHeight - ((winHeight * 34 / 100) + 103) + 'px';
   element.style.left = '180px';
-  element.style.top = '475px';
+  element.style.top = (winHeight * 34 / 100) + 100 + 'px'
   element.style.resize = 'none';
   element.style.border = '2px solid black'
 }
@@ -182,10 +194,10 @@ function outputStyle(element, i) {
   element.style.backgroundColor = 'black';
   element.style.color = 'white';
   element.style.fontSize = '18px';
-  element.style.width = '822px';
-  element.style.height = '57%'; /* 515px */
-  element.style.left = '1009px';
-  element.style.top = '475px';
+  element.style.width = (winWidth - 180)/2 - 10 + 'px';
+  element.style.height = winHeight - ((winHeight * 34 / 100) + 105) + 'px';
+  element.style.left = 180 + (winWidth - 180)/2 - 4 + 'px';
+  element.style.top = (winHeight * 34 / 100) + 100 + 'px'
   element.style.border = '5px solid black'
 }
 
@@ -194,12 +206,13 @@ function inputExplanationStyle(element, i){
   element.style.backgroundColor = 'yellow';
   element.style.color = 'black';
   element.style.fontSize = '20px';
-  element.style.width = '822px';
-  element.style.height = '3.3%'; /* 35px */
+  element.style.width = (winWidth - 200)/2 + 'px';
   element.style.left = '180px';
-  element.style.top = '430px';
+  element.style.top = (winHeight * 34 / 100) + 55 + 'px';
+  element.style.height = '35px'
   element.style.border = '5px solid red'
   element.style.opacity = 0.7;
+  element.style.overflowY = 'scroll';
 }
 
 function outputExplanationStyle(element, i){
@@ -207,12 +220,13 @@ function outputExplanationStyle(element, i){
   element.style.backgroundColor = 'yellow';
   element.style.color = 'black';
   element.style.fontSize = '20px';
-  element.style.width = '822px';
-  element.style.height = '3.3%'; /* 35px */
-  element.style.left = '1009px';
-  element.style.top = '430px';
+  element.style.width = (winWidth - 200)/2 + 'px';
+  element.style.height =  '35px'
+  element.style.left = 190 + (winWidth - 200)/2 + 'px';
+  element.style.top = (winHeight * 34 / 100) + 55 + 'px';
   element.style.border = '5px solid red'
   element.style.opacity = 0.7;
+  element.style.overflowY = 'scroll';
 }
 
 //*****************THE INTRO FUNCTIONS**********************//
