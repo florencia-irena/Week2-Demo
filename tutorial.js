@@ -19,33 +19,39 @@ var lesson1 = new Lesson("GME API", "The Google Maps Engine API (Application Pro
   " in the introduction, this tutorial will focus on reading public data and customising the JSON resources.", "lesson1-gmeapi");
 lesson1.update = updateGMEAPI;
 var lesson2 = new Lesson("API Key", "For this tutorial you will need an API key in order to access the data. To obtain an API Key" +
-", go to the <a href=https://cloud.google.com/console target='_blank'>Google Cloud Console</a>. Click on APIs & Auth and turn the Google Maps " +
-"Engine API to ON.<br>Next, you will need to register your app as a Web Application through the Registered Apps tab. The API key" +
-" can be found under the Server/Browser Key dropdown.<br><br>Once you have the key, paste it in the input box below.", "lesson2-apikey");
+  ", go to the <a href=https://cloud.google.com/console target='_blank'>Google Cloud Console</a>. Click on APIs & Auth and turn the Google Maps " +
+  "Engine API to ON.<br>Next, you will need to register your app as a Web Application through the Registered Apps tab. The API key" +
+  " can be found under the Server/Browser Key dropdown.<br><br>Once you have the key, paste it in the input box below.", "lesson2-apikey");
 lesson2.update = updateAPIKey;
-var lesson3 = new Lesson("Get Table", "<<replace with blurb3>>", "lesson3-gettable");
-lesson3.update = updateIntro;
+var lesson3 = new Lesson("Get Table", "The GME API stores data in tables with the columns representing attributes and each row " +
+  "representing a data entry. The attributes each have a name and a type which indicates what form the data takes (string, number etc.)." +
+  " Once a table is created, you can view the names of all attributes and their types (known as a <b>schema</b>) using the 'Get Table'" +
+  " read operation.<br><br>As stated, accessing data occurs through HTTP requests. The GME API allows you to use URLs to access public data." +
+  " All requests use the same base URL: <br><i>https://www.googleapis.com/mapsengine/v1</i>.<br><br>To specify a 'Get Table' request, add <i>/tables/{tableID}</i>" +
+  " followed by two compulsory parameters, <i>/?version=published&key={APIkey}</i>.<br>The API key is the one you created in the previous lesson.<br><br>" +
+  "Why don't you give this a try? type the URL into the input box below, using the tableID: 15474835347274181123-16143158689603361093 and submit.", "lesson3-gettable");
+lesson3.update = updateGetTable;
 var lesson4 = new Lesson("List Features", "<<replace with blurb4>>", "lesson4-featureslist");
 lesson4.update = updateIntro;
 var lesson5 = new Lesson("Javascript", "So far, you have learned to generate a URL to request public data. Using JavaScript" +
-" and jQuery you can create a function that will send this URL in a HTTP request and display the results. There are a few ways" +
-" that this can be achieved, but this lesson will demonstrate using jQuery AJAX (Asynchronous JavaScript and XML) method.<br><br>" +
-"Within a function, create a request structured in the following way:<br>" +
-"jQuery.ajax({<br>" +
-"&nbsp;&nbsp;url: &ltyour-url&gt,<br>" +
-"&nbsp;&nbsp;dataType: 'json',<br>" +
-"&nbsp;&nbsp;success: function(resource) {<br>" +
-"&nbsp;&nbsp;&nbsp;&nbsp;//what will happen if the request is successful, e.g. display the JSON results<br>" +
-"&nbsp;&nbsp;&nbsp;&nbsp;//NOTE: the two last parameters specify a nicer formatting for the output<br>" +
-"&nbsp;&nbsp;&nbsp;&nbsp;console.log(JSON.stringify(resource, null, 4));<br>" +
-"&nbsp;&nbsp;},<br>" +
-"&nbsp;&nbsp;error: function(response) {<br>" +
-"&nbsp;&nbsp;&nbsp;&nbsp;//what will happen if the request is unsuccessful, e.g. display error<br>" +
-"&nbsp;&nbsp;&nbsp;&nbsp;console.log('Error: ', response.error.errors[0]);<br>" +
-"&nbsp;&nbsp;}<br>" +
-"});<br>" +
-"Once you have the function created you will need to call it using:<br>" +
-"jQuery(document).ready(functionName);", "lesson5-javascript");
+  " and jQuery you can create a function that will send this URL in a HTTP request and display the results. There are a few ways" +
+  " that this can be achieved, but this lesson will demonstrate using jQuery AJAX (Asynchronous JavaScript and XML) method.<br><br>" +
+  "Within a function, create a request structured in the following way:<br>" +
+  "jQuery.ajax({<br>" +
+  "&nbsp;&nbsp;url: &ltyour-url&gt,<br>" +
+  "&nbsp;&nbsp;dataType: 'json',<br>" +
+  "&nbsp;&nbsp;success: function(resource) {<br>" +
+  "&nbsp;&nbsp;&nbsp;&nbsp;//what will happen if the request is successful, e.g. display the JSON results<br>" +
+  "&nbsp;&nbsp;&nbsp;&nbsp;//NOTE: the two last parameters specify a nicer formatting for the output<br>" +
+  "&nbsp;&nbsp;&nbsp;&nbsp;console.log(JSON.stringify(resource, null, 4));<br>" +
+  "&nbsp;&nbsp;},<br>" +
+  "&nbsp;&nbsp;error: function(response) {<br>" +
+  "&nbsp;&nbsp;&nbsp;&nbsp;//what will happen if the request is unsuccessful, e.g. display error<br>" +
+  "&nbsp;&nbsp;&nbsp;&nbsp;console.log('Error: ', response.error.errors[0]);<br>" +
+  "&nbsp;&nbsp;}<br>" +
+  "});<br>" +
+  "Once you have the function created you will need to call it using:<br>" +
+  "jQuery(document).ready(functionName);", "lesson5-javascript");
 lesson5.update = updateJavascript;
 var lesson6 = new Lesson("Other Methods", "<<replace with blurb6>>", "lesson6-othermethods");
 lesson6.update = updateIntro;
@@ -234,6 +240,12 @@ function updateAPIKey() {
 }
 
 //*****************THE Get Table FUNCTIONS**********************//
+function updateGetTable() {
+  activeIndex = 3;
+  document.title = lessonArray[activeIndex].title;
+  document.getElementById(lessonArray[activeIndex].divID).style.display = "block";
+  document.getElementById("instructions").innerHTML = lessonArray[activeIndex].blurb;
+}
 //*****************THE List Features FUNCTIONS**********************//
 //*****************THE Javascript FUNCTIONS**********************//
 function updateJavascript() {
