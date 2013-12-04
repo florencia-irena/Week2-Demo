@@ -25,7 +25,8 @@ var lesson1 = new Lesson("GME API", "The Google Maps Engine API (Application Pro
   " where resources are represented as JavaScript Object Notation (JSON). This makes it simple for developers to create, share" +
   " and publish their own custom Google maps and develop applications for a number of platforms.<br> The interface allows" +
   " users to Create, Read, Upload, Update and Delete data from custom tables using simple HTTP requests.<br><br> As stated" +
-  " in the introduction, this tutorial will focus on reading public data and customising the JSON resources.", "lesson1-gmeapi");
+  " in the introduction, this tutorial will focus on reading public data and customising the JSON resources." +
+  " If you want to make your data public, you can follow the steps in this link: https://support.google.com/mapsengine/answer/3164737?hl=en", "lesson1-gmeapi");
 lesson1.update = updateGMEAPI;
 lesson1.submit = updateGMEAPI;
 var lesson2 = new Lesson("API Key", "For this tutorial you will need an API key in order to access the data. To obtain an API Key" +
@@ -43,9 +44,31 @@ var lesson3 = new Lesson("Get Table", "The GME API stores data in tables with th
   "Why don't you give this a try? type the URL into the input box below, using the tableID: 15474835347274181123-16143158689603361093 and submit.", "lesson3-gettable");
 lesson3.update = updateGetTable;
 lesson3.submit = updateGetTable;
-var lesson4 = new Lesson("List Features", "<<replace with blurb4>>", "lesson4-featureslist");
-lesson4.update = updateIntro;
-lesson4.submit = updateIntro;
+var lesson4 = new Lesson("List Features", "Besides viewing a table's attribute, you can also access table's features." +
+                         " A feature is a data entry in a table, represented by each row in the table. It can be a point, polygone, or polyline."+
+                         " To access a table's features in the GME API, you can type in a specific URL in your browser." +
+                         " It will return a list of features that the table has." +
+                         " However, you need to remember that in order to do this, the table that you want to access has to be publicly accessible." +
+                         "<br><br>The basic URL to access features list:" +
+                         "<br> https://www.googleapis.com/mapsengine/v1/tables/<em>{tableId}</em>/features?<em>{parameters}</em>" +
+                         "<br><br>If you have more than 1 parameter, you can join them together in the URL with the '&' symbol." +
+                         " There are 2 required parameters, that must be included in your URL, which are:" +
+                         "<ul><li>version=published <br> The table must be a published version to be accessed. </li>" +
+                         "<li>key=<em>your API key</em></li></ul>"+
+                         "One example of the URL:" +
+                         "<br>https://www.googleapis.com/mapsengine/v1/tables/01512215508764088245-12798225287603138914/features?version=published&key=AIzaSyAllwffSbT4nwGqtUOvt7oshqSHowuTwN0" +
+                         "<br>You can copy this URL and paste it in the white input box below, and click the submit button to see the output." +
+                         " You can also try to create your own URL and submit it below!" +
+                         "<br><br>There are several optional parameters for the list feature, including:" +
+                         "<ul><li>interescts</li>" +
+                         "<ul><li>limit</li>" +
+                         "<ul><li>maxResults</li>" +
+                         "<ul><li>orderBy</li>" +
+                         "<ul><li>pageToken</li>" +
+                         "<ul><li>select</li>" +
+                         "<ul><li>where</li>","lesson4-featureslist");
+lesson4.update = updateListFeatures;
+lesson4.submit = executeListInput;
 var lesson5 = new Lesson("Javascript", "So far, you have learned to generate a URL to request public data. Using JavaScript" +
   " and jQuery you can create a function that will send this URL in a HTTP request and display the results. There are a few ways" +
   " that this can be achieved, but this lesson will demonstrate using the jQuery AJAX (Asynchronous JavaScript and XML) method.<br><br>" +
@@ -76,7 +99,7 @@ var lesson6 = new Lesson("Other Methods", "Besides directly typing the URL into 
                          "<br><br>You can try to put your command line in the white box below and see what data will be read and displayed in your console. Try it!:)", "lesson6-othermethods");
 
 lesson6.update = updateOtherMethods;
-lesson6.submit = updateOtherMethods;
+lesson6.submit = executeCurlInput;
 
 //The Lesson Array
 var lessonArray = [lesson0, lesson1, lesson2, lesson3, lesson4, lesson5, lesson6];
@@ -189,7 +212,7 @@ function createInputOutput() {
     var outputElement = document.getElementById("output" + i);
     outputStyle(outputElement, i)
     var inputExpElement = document.getElementById("input-explanation" + i);
-    inputExpElement.innerHTML = "Please type your input below. Press enter to submit the input.";
+    inputExpElement.innerHTML = "Please type your input below. Press the submit button to see the output.";
     inputExplanationStyle(inputExpElement, i);
     var outputExpElement = document.getElementById("output-explanation" + i);
     outputExpElement.innerHTML = "Output";
@@ -310,6 +333,7 @@ function updateGMEAPI() {
 //*****************THE API Key FUNCTIONS**********************//
 function updateAPIKey() {
   activeIndex = 2;
+  hideAll();
   document.title = lessonArray[activeIndex].title;
   document.getElementById(lessonArray[activeIndex].divID).style.display = "block";
   document.getElementById("instructions").innerHTML = lessonArray[activeIndex].blurb;
@@ -334,14 +358,46 @@ function testAPIKey() {
 //*****************THE Get Table FUNCTIONS**********************//
 function updateGetTable() {
   activeIndex = 3;
+  hideAll();
   document.title = lessonArray[activeIndex].title;
   document.getElementById(lessonArray[activeIndex].divID).style.display = "block";
   document.getElementById("instructions").innerHTML = lessonArray[activeIndex].blurb;
 }
 //*****************THE List Features FUNCTIONS**********************//
+function updateListFeatures() {
+  activeIndex = 4;
+  hideAll();
+  document.title = lessonArray[activeIndex].title;
+  document.getElementById(lessonArray[activeIndex].divID).style.display = "block";
+  document.getElementById("instructions").innerHTML = lessonArray[activeIndex].blurb;
+}
+
+function executeListInput(){
+  var string = document.getElementById("input" + activeIndex).value;
+  for (var i = 0; i<string.length; i++){
+    if(string[i]!== ' '){
+      break;
+    }
+  }
+  if (i === string.length || string[i]!== 'h') {
+    alert ("Wrong URL! See the tutorial again."); 
+  } else {
+    var address = "";
+    for (; i<string.length; i++){
+      if (string[i] === " "){
+        break;
+      }
+      address += string[i];
+    }
+    getFeatures(address);
+  }
+  
+}
+
 //*****************THE Javascript FUNCTIONS**********************//
 function updateJavascript() {
   activeIndex = 5;
+  hideAll();
   document.title = lessonArray[activeIndex].title;
   document.getElementById(lessonArray[activeIndex].divID).style.display = "block";
   document.getElementById("instructions").innerHTML = lessonArray[activeIndex].blurb;
@@ -376,15 +432,6 @@ function updateOtherMethods(){
   document.title = lessonArray[activeIndex].title;
   document.getElementById(lessonArray[activeIndex].divID).style.display = "block";
   document.getElementById("instructions").innerHTML = lessonArray[activeIndex].blurb;
-  var inputBox = $("#input" + activeIndex);
- 
-  inputBox.keypress(function(e){
-    if(e.keyCode == 13) {
-      //console.log($inputBox);
-      //console.log(document.getElementById("#input" + activeIndex));
-      executeCurlInput();
-    }
-  });
 }
 
 function executeCurlInput(){
@@ -427,14 +474,14 @@ function executeCurlInput(){
         if (string[i] !== '\"'){
           alert("You entered wrong command-line. See the tutorial again.");
         } else {
-          getFeaturesCurl(address);
+          getFeatures(address);
         }
       }
     }
   }
 }
 
-function getFeaturesCurl(addressString){
+function getFeatures(addressString){
   var $data = $("#output" + activeIndex);
   var data = document.getElementById("output" + activeIndex);
   data.style.whiteSpace = 'pre';
@@ -450,6 +497,7 @@ function getFeaturesCurl(addressString){
       $data.append("\n");
     },
     error: function(response) {
+      $data.append("Wrong URL\n");
       response = JSON.parse(response.responseText);
       var errorMess = response.error.errors[0];
       if (errorMess.reason === "authError") {
