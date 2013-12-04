@@ -4,6 +4,7 @@
 //global window size variables used in dynamic sizing
 var winWidth = $(window).width();
 var winHeight = $(window).height();
+var userAPIKey = "";
 
 //object to store lesson information
 function Lesson(title, blurb, divID) {
@@ -43,7 +44,7 @@ var lesson3 = new Lesson("Get Table", "The GME API stores data in tables with th
                          " followed by two compulsory parameters, <i>/?version=published&key={APIkey}</i>.<br>The API key is the one you created in the previous lesson.<br><br>" +
                          "Why don't you give this a try? type the URL into the input box below, using the tableID: 15474835347274181123-16143158689603361093 and submit.", "lesson3-gettable");
 lesson3.update = updateGetTable;
-lesson3.submit = updateGetTable;
+lesson3.submit = testGetTable;
 var lesson4 = new Lesson("List Features", "Besides viewing a table's attribute, you can also access table's features." +
                          " A feature is a data entry in a table, represented by each row in the table. It can be a point, polygone, or polyline."+
                          " To access a table's features in the GME API, you can type in a specific URL in your browser." +
@@ -134,7 +135,7 @@ var lesson5 = new Lesson("Javascript", "So far, you have learned to generate a U
                          "jQuery(document).ready(functionName);<br><br>Test your AJAX syntax in the input box below. Create a request with the basic list " + 
                          "features URL from the previous lesson (i.e. without any parameters) and press enter to see the results.", "lesson5-javascript");
 lesson5.update = updateJavascript;
-lesson5.submit = updateJavascript;
+lesson5.submit = testJQuery;
 var lesson6 = new Lesson("Other Methods", "Besides directly typing the URL into the browser or using Javascript, you can access the public data by using 'curL'." +
 	                       "<br>cURL is a command-line tool that can be used to make HTTP requests. Simply type into your console/terminal:" +
 	                       "<br>curl \"<em>your URL</em>\"" +
@@ -386,12 +387,13 @@ function updateAPIKey() {
 function testAPIKey() {
   var userKey = document.getElementById("input" + activeIndex).value;
   var $data = $("#output" + activeIndex);
-  console.log(userKey);
   jQuery.ajax({
   url: 'https://www.googleapis.com/mapsengine/v1/tables/15474835347274181123-16143158689603361093/features?version=published&key=' + userKey,
     dataType: 'json',
     success: function(resource) {
       $data.html("Congrats! Your API Key works. Now continue on to Get Table!");
+      userAPIKey = userKey;
+      console.log(userAPIKey);
     },
     error: function(response) {
       $data.html("Sorry your API Key did not work. Try again!");
@@ -406,6 +408,18 @@ function updateGetTable() {
   document.title = lessonArray[activeIndex].title;
   document.getElementById(lessonArray[activeIndex].divID).style.display = "block";
   document.getElementById("instructions").innerHTML = lessonArray[activeIndex].blurb;
+}
+
+function testGetTable() {
+  var userURL = document.getElementById("input" + activeIndex).value;
+  var $data = $("#output" + activeIndex);
+  var expectedURL = "https://www.googleapis.com/mapsengine/v1/tables/15474835347274181123-16143158689603361093/?version=published&key=" + userAPIKey;
+  if (userURL == expectedURL) {
+    alert("Huzzah! Great work!")
+    getFeatures("https://www.googleapis.com/mapsengine/search_tt/tables/15474835347274181123-16143158689603361093/?version=published&key=" + userAPIKey);
+  } else {
+    $data.html("Oh no! Something isn't quite right. Try again. Hint: Make sure you entered a valid API Key in the previous exercise!");
+  }
 }
 //*****************THE List Features FUNCTIONS**********************//
 function updateListFeatures() {
@@ -443,16 +457,35 @@ function updateJavascript() {
   document.getElementById(lessonArray[activeIndex].divID).style.display = "block";
   document.getElementById("instructions").innerHTML = lessonArray[activeIndex].blurb;
   var inputBox = $("#input" + activeIndex);
-  inputBox.keypress(function(e){
-    if(e.keyCode == 13) {
-      testJQuery();
-    }
-  });
 }
 
 function testJQuery() {
+  activeIndex = 5;
   var userString = document.getElementById("input" + activeIndex).value;
-  var $data = $("#output" + activeIndex);
+  var $data = $("#output" + activeIndex)
+  console.log(userString);
+  var expectedInput = "jQuery.ajax({\n  url: 'https://www.googleapis.com/mapsengine/v1/tables/15474835347274181123-16143158689603361093/features?version=published&key=" + userAPIKey + "'," +
+  "\n  dataType: 'json'," +
+  "\n  success: function(resource) {" +
+  "\n    console.log(JSON.stringify(resource, null, 4));" +
+  "\n  }," +
+  "\n  error: function(response) {" +
+  "\n    console.log('Error: ', response.error.errors[0]);" +
+  "\n  }\n});";
+console.log(expectedInput);
+if (userString == expectedInput) {
+  //user input is correct
+  getFeatures ("https://www.googleapis.com/mapsengine/v1/tables/15474835347274181123-16143158689603361093/features?version=published&key=" + userAPIKey);
+} else {
+  //user input is incorrect
+  $data.html("Sorry, your input is not correct. Please check that you have the following:<ul><li>Make sure you have entered a valid API Key in a previous exercise!</li>" +
+  "<li>Request is correctly indented using TWO spaces</li>" +
+  "<li>URL is:'https://www.googleapis.com/mapsengine/v1/tables/15474835347274181123-16143158689603361093/features?version=published&key=" + userAPIKey + 
+  "', including '' characters</li><li>There are no comments in your code.</li><li>For this exercise, make sure your success and error handling is the same as in the example.</li></ul>");
+}
+/*  if (userString == expectedInput) {
+    console.log("HUZZAH!");
+  }*/
 }
 
 //*****************THE Other Methods FUNCTIONS**********************//
