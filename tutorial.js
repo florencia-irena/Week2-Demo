@@ -80,6 +80,17 @@ var lesson4 = new Lesson("List Features", "Besides viewing a table's attribute, 
                                   "</ul>" +
                                "</li>"+  
                                "<li>POINT"+
+                                 "<ul>" +
+                                   "<li>The syntax to specify a point: <br>intersects=POINT(lng lat)"+
+                                     "<br>Where lng:longitude of the vertex and lat:latitude of the vertex"+
+                                   "</li>" +
+                                   "<li>The vertices must be specified in counter-clockwise order, and you can have up to 50 vertices" +
+                                   "</li>" +
+                                   "<li>The first and last vertices has to be the same to close the polygon, hence you need to have at least 4 vertices(3 distinct points)"+
+                                   "</li>" +
+                                   "<li>Example: https://www.googleapis.com/mapsengine/v1/tables/01512215508764088245-12798225287603138914/features?version=published&key=AIzaSyAllwffSbT4nwGqtUOvt7oshqSHowuTwN0&intersects=POLYGON((175 -41, 174 -41, 174 -42, 175 -41))"+
+                                   "</li>" +
+                                  "</ul>" +
                                "</li>"+
                                "<li>CIRCLE"+
                                "</li>"+
