@@ -51,7 +51,7 @@ var lesson5 = new Lesson("Javascript", "So far, you have learned to generate a U
   " that this can be achieved, but this lesson will demonstrate using the jQuery AJAX (Asynchronous JavaScript and XML) method.<br><br>" +
   "Within a function, create a request structured in the following way:<br>" +
   "jQuery.ajax({<br>" +
-  "&nbsp;&nbsp;url: &ltyour-url&gt,<br>" +
+  "&nbsp;&nbsp;url: 'your-url',<br>" +
   "&nbsp;&nbsp;dataType: 'json',<br>" +
   "&nbsp;&nbsp;success: function(resource) {<br>" +
   "&nbsp;&nbsp;&nbsp;&nbsp;//what will happen if the request is successful, e.g. display the JSON results<br>" +
@@ -67,7 +67,7 @@ var lesson5 = new Lesson("Javascript", "So far, you have learned to generate a U
   "jQuery(document).ready(functionName);<br><br>Test your AJAX syntax in the input box below. Create a request with the basic list " + 
   "features URL from the previous lesson (i.e. without any parameters) and press enter to see the results.", "lesson5-javascript");
 lesson5.update = updateJavascript;
-lesson5.submit = updateJavascript;
+lesson5.submit = testJQuery;
 var lesson6 = new Lesson("Other Methods", "Besides directly typing the URL into the browser or using Javascript, you can access the public data by using 'curL'." +
 	                     "<br>cURL is a command-line tool that can be used to make HTTP requests. Simply type into your console/terminal:" +
 	                     "<br>curl \"<em>your URL</em>\"" +
@@ -346,16 +346,27 @@ function updateJavascript() {
   document.getElementById(lessonArray[activeIndex].divID).style.display = "block";
   document.getElementById("instructions").innerHTML = lessonArray[activeIndex].blurb;
   var inputBox = $("#input" + activeIndex);
-  inputBox.keypress(function(e){
-    if(e.keyCode == 13) {
-      testJQuery();
-    }
-  });
 }
 
 function testJQuery() {
   var userString = document.getElementById("input" + activeIndex).value;
-  var $data = $("#output" + activeIndex);
+  var $data = $("#output" + activeIndex)
+  console.log(userString);
+  var expectedInput = "jQuery.ajax({\n  url: 'https://www.googleapis.com/mapsengine/v1/tables/15474835347274181123-16143158689603361093/features?version=published&key=AIzaSyDOyBEdscPoVZ2uq22WhQSJKbyaDiwH0iI'," +
+  "\n  dataType: 'json'," +
+  "\n  success: function(resource) {" +
+  "\n    console.log(JSON.stringify(resource, null, 4));" +
+  "\n  }," +
+  "\n  error: function(response) {" +
+  "\n    console.log('Error: ', response.error.errors[0]);" +
+  "\n  }\n});";
+console.log(expectedInput);
+if (userString == expectedInput) {
+  console.log("HUZZAH!");
+}
+/*  if (userString == expectedInput) {
+    console.log("HUZZAH!");
+  }*/
 }
 
 //*****************THE Other Methods FUNCTIONS**********************//
