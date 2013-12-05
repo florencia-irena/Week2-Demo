@@ -23,26 +23,26 @@ var lesson0 = new Lesson("Introduction", "Welcome to Google Maps API tutorial. <
 lesson0.update = updateIntro;
 lesson0.submit = updateIntro;
 var lesson1 = new Lesson("GME API", "The Google Maps Engine API (Application Programming Interface) is a RESTful API" +
-  " where resources are represented as JavaScript Object Notation (JSON). This makes it simple for developers to create, share" +
-  " and publish their own custom Google maps and develop applications for a number of platforms.<br> The interface allows" +
-  " users to Create, Read, Upload, Update and Delete data from custom tables using simple HTTP requests.<br><br> As stated" +
-  " in the introduction, this tutorial will focus on reading public data and customising the JSON resources." +
-  " If you want to make your data public, you can follow the steps in this link: https://support.google.com/mapsengine/answer/3164737?hl=en", "lesson1-gmeapi");
+                         " where resources are represented as JavaScript Object Notation (JSON). This makes it simple for developers to create, share" +
+                         " and publish their own custom Google maps and develop applications for a number of platforms.<br> The interface allows" +
+                         " users to Create, Read, Upload, Update and Delete data from custom tables using simple HTTP requests.<br><br> As stated" +
+                         " in the introduction, this tutorial will focus on reading public data and customising the JSON resources." +
+                         " If you want to make your data public, you can follow the steps in this link: https://support.google.com/mapsengine/answer/3164737?hl=en", "lesson1-gmeapi");
 lesson1.update = updateGMEAPI;
 lesson1.submit = updateGMEAPI;
 var lesson2 = new Lesson("API Key", "For this tutorial you will need an API key in order to access the data. To obtain an API Key" +
-  ", go to the <a href=https://cloud.google.com/console target='_blank'>Google Cloud Console</a>. Click on APIs & Auth and turn the Google Maps " +
-  "Engine API to ON.<br>Next, you will need to register your app as a Web Application through the Registered Apps tab. The API key" +
-  " can be found under the Server/Browser Key dropdown.<br><br>Once you have the key, paste it in the input box below.", "lesson2-apikey");
+                         ", go to the <a href=https://cloud.google.com/console target='_blank'>Google Cloud Console</a>. Click on APIs & Auth and turn the Google Maps " +
+                         "Engine API to ON.<br>Next, you will need to register your app as a Web Application through the Registered Apps tab. The API key" +
+                         " can be found under the Server/Browser Key dropdown.<br><br>Once you have the key, paste it in the input box below.", "lesson2-apikey");
 lesson2.update = updateAPIKey;
 lesson2.submit = testAPIKey;
 var lesson3 = new Lesson("Get Table", "The GME API stores data in tables with the columns representing attributes and each row " +
-  "representing a data entry. The attributes each have a name and a type which indicates what form the data takes (string, number etc.)." +
-  " Once a table is created, you can view the names of all attributes and their types (known as a <b>schema</b>) using the 'Get Table'" +
-  " read operation.<br><br>As stated, accessing data occurs through HTTP requests. The GME API allows you to use URLs to access public data." +
-  " All requests use the same base URL: <br><i>https://www.googleapis.com/mapsengine/v1</i>.<br><br>To specify a 'Get Table' request, add <i>/tables/{tableID}</i>" +
-  " followed by two compulsory parameters, <i>/?version=published&key={APIkey}</i>.<br>The API key is the one you created in the previous lesson.<br><br>" +
-  "Why don't you give this a try? type the URL into the input box below, using the tableID: 15474835347274181123-16143158689603361093 and submit.", "lesson3-gettable");
+                         "representing a data entry. The attributes each have a name and a type which indicates what form the data takes (string, number etc.)." +
+                         " Once a table is created, you can view the names of all attributes and their types (known as a <b>schema</b>) using the 'Get Table'" +
+                         " read operation.<br><br>As stated, accessing data occurs through HTTP requests. The GME API allows you to use URLs to access public data." +
+                         " All requests use the same base URL: <br><i>https://www.googleapis.com/mapsengine/v1</i>.<br><br>To specify a 'Get Table' request, add <i>/tables/{tableID}</i>" +
+                         " followed by two compulsory parameters, <i>/?version=published&key={APIkey}</i>.<br>The API key is the one you created in the previous lesson.<br><br>" +
+                         "Why don't you give this a try? type the URL into the input box below, using the tableID: 15474835347274181123-16143158689603361093 and submit.", "lesson3-gettable");
 lesson3.update = updateGetTable;
 lesson3.submit = testGetTable;
 var lesson4 = new Lesson("List Features", "Besides viewing a table's attribute, you can also access table's features." +
@@ -54,49 +54,93 @@ var lesson4 = new Lesson("List Features", "Besides viewing a table's attribute, 
                          "<br> https://www.googleapis.com/mapsengine/v1/tables/<em>{tableId}</em>/features?<em>{parameters}</em>" +
                          "<br><br>If you have more than 1 parameter, you can join them together in the URL with the '&' symbol." +
                          " There are 2 required parameters, that must be included in your URL, which are:" +
-                         "<ul><li>version=published <br> The table must be a published version to be accessed. </li>" +
-                         "<li>key=<em>your API key</em></li></ul>"+
+                         "<ul>"+
+                           "<li>version=published <br> The table must be a published version to be accessed. </li>" +
+                           "<li>key=<em>your API key</em></li>"+
+                         "</ul>"+
                          "One example of the URL:" +
                          "<br>https://www.googleapis.com/mapsengine/v1/tables/01512215508764088245-12798225287603138914/features?version=published&key=AIzaSyAllwffSbT4nwGqtUOvt7oshqSHowuTwN0" +
                          "<br>You can copy this URL and paste it in the white input box below, and click the submit button to see the output." +
                          " You can also try to create your own URL and submit it below!" +
                          "<br><br>There are several optional parameters for the list feature, including:" +
-                         "<ul><li>interescts</li>" +
-                         "<ul><li>limit</li>" +
-                         "<ul><li>maxResults</li>" +
-                         "<ul><li>orderBy</li>" +
-                         "<ul><li>pageToken</li>" +
-                         "<ul><li>select</li>" +
-                         "<ul><li>where</li>","lesson4-featureslist");
+                         "<ul>"+
+                           "<li>intersects" +
+                             "<br>This parameter will return the features which is restricted by the geometries specified in the value. The geometries supported by Google Maps API are:"+
+                             "<ul>"+
+                               "<li>POLYGON"+
+                                 "<ul>" +
+                                   "<li>The syntax to specify a polygon: <br>intersects=POLYGON((v1_lng v1_lat, v2_lng v2_lat, ..., v1_lng v1_lat))"+
+                                     "<br>Where lng:longitude of the vertex and lat:latitude of the vertex"+
+                                   "</li>" +
+                                   "<li>The vertices must be specified in counter-clockwise order, and you can have up to 50 vertices" +
+                                   "</li>" +
+                                   "<li>The first and last vertices has to be the same to close the polygon, hence you need to have at least 4 vertices(3 distinct points)"+
+                                   "</li>" +
+                                   "<li>Example: https://www.googleapis.com/mapsengine/v1/tables/01512215508764088245-12798225287603138914/features?version=published&key=AIzaSyAllwffSbT4nwGqtUOvt7oshqSHowuTwN0&intersects=POLYGON((175 -41, 174 -41, 174 -42, 175 -41))"+
+                                   "</li>" +
+                                  "</ul>" +
+                               "</li>"+  
+                               "<li>POINT"+
+                                 "<ul>" +
+                                   "<li>The syntax to specify a point: <br>intersects=POINT(lng lat)"+
+                                     "<br>Where lng:longitude of the vertex and lat:latitude of the vertex"+
+                                   "</li>" +
+                                   "<li>The vertices must be specified in counter-clockwise order, and you can have up to 50 vertices" +
+                                   "</li>" +
+                                   "<li>The first and last vertices has to be the same to close the polygon, hence you need to have at least 4 vertices(3 distinct points)"+
+                                   "</li>" +
+                                   "<li>Example: https://www.googleapis.com/mapsengine/v1/tables/01512215508764088245-12798225287603138914/features?version=published&key=AIzaSyAllwffSbT4nwGqtUOvt7oshqSHowuTwN0&intersects=POLYGON((175 -41, 174 -41, 174 -42, 175 -41))"+
+                                   "</li>" +
+                                  "</ul>" +
+                               "</li>"+
+                               "<li>CIRCLE"+
+                               "</li>"+
+                               "<li>LINESTRING"+
+                               "</li>"+
+                             "</ul>"+
+                           "</li>"+
+                           "<li>limit"+
+                           "</li>" +
+                           "<li>maxResults"+
+                           "</li>" +
+                           "<li>orderBy"+
+                           "</li>" +
+                           "<li>pageToken"+
+                           "</li>" +
+                           "<li>select"+
+                           "</li>" +
+                           "<li>where"+
+                           "</li>"+
+                         "</ul>","lesson4-featureslist");
 lesson4.update = updateListFeatures;
 lesson4.submit = executeListInput;
 var lesson5 = new Lesson("Javascript", "So far, you have learned to generate a URL to request public data. Using JavaScript" +
-  " and jQuery you can create a function that will send this URL in a HTTP request and display the results. There are a few ways" +
-  " that this can be achieved, but this lesson will demonstrate using the jQuery AJAX (Asynchronous JavaScript and XML) method.<br><br>" +
-  "Within a function, create a request structured in the following way:<br>" +
-  "jQuery.ajax({<br>" +
-  "&nbsp;&nbsp;url: 'your-url',<br>" +
-  "&nbsp;&nbsp;dataType: 'json',<br>" +
-  "&nbsp;&nbsp;success: function(resource) {<br>" +
-  "&nbsp;&nbsp;&nbsp;&nbsp;//what will happen if the request is successful, e.g. display the JSON results<br>" +
-  "&nbsp;&nbsp;&nbsp;&nbsp;//NOTE: the two last parameters specify a nicer formatting for the output<br>" +
-  "&nbsp;&nbsp;&nbsp;&nbsp;console.log(JSON.stringify(resource, null, 4));<br>" +
-  "&nbsp;&nbsp;},<br>" +
-  "&nbsp;&nbsp;error: function(response) {<br>" +
-  "&nbsp;&nbsp;&nbsp;&nbsp;//what will happen if the request is unsuccessful, e.g. display error<br>" +
-  "&nbsp;&nbsp;&nbsp;&nbsp;console.log('Error: ', response.error.errors[0]);<br>" +
-  "&nbsp;&nbsp;}<br>" +
-  "});<br>" +
-  "Once you have the function created you will need to call it using:<br>" +
-  "jQuery(document).ready(functionName);<br><br>Test your AJAX syntax in the input box below. Create a request with the basic list " + 
-  "features URL from the previous lesson (i.e. without any parameters) and press enter to see the results.", "lesson5-javascript");
+                         " and jQuery you can create a function that will send this URL in a HTTP request and display the results. There are a few ways" +
+                         " that this can be achieved, but this lesson will demonstrate using the jQuery AJAX (Asynchronous JavaScript and XML) method.<br><br>" +
+                         "Within a function, create a request structured in the following way:<br>" +
+                         "jQuery.ajax({<br>" +
+                         "&nbsp;&nbsp;url: &ltyour-url&gt,<br>" +
+                         "&nbsp;&nbsp;dataType: 'json',<br>" +
+                         "&nbsp;&nbsp;success: function(resource) {<br>" +
+                         "&nbsp;&nbsp;&nbsp;&nbsp;//what will happen if the request is successful, e.g. display the JSON results<br>" +
+                         "&nbsp;&nbsp;&nbsp;&nbsp;//NOTE: the two last parameters specify a nicer formatting for the output<br>" +
+                         "&nbsp;&nbsp;&nbsp;&nbsp;console.log(JSON.stringify(resource, null, 4));<br>" +
+                         "&nbsp;&nbsp;},<br>" +
+                         "&nbsp;&nbsp;error: function(response) {<br>" +
+                         "&nbsp;&nbsp;&nbsp;&nbsp;//what will happen if the request is unsuccessful, e.g. display error<br>" +
+                         "&nbsp;&nbsp;&nbsp;&nbsp;console.log('Error: ', response.error.errors[0]);<br>" +
+                         "&nbsp;&nbsp;}<br>" +
+                         "});<br>" +
+                         "Once you have the function created you will need to call it using:<br>" +
+                         "jQuery(document).ready(functionName);<br><br>Test your AJAX syntax in the input box below. Create a request with the basic list " + 
+                         "features URL from the previous lesson (i.e. without any parameters) and press enter to see the results.", "lesson5-javascript");
 lesson5.update = updateJavascript;
 lesson5.submit = testJQuery;
 var lesson6 = new Lesson("Other Methods", "Besides directly typing the URL into the browser or using Javascript, you can access the public data by using 'curL'." +
-	                     "<br>cURL is a command-line tool that can be used to make HTTP requests. Simply type into your console/terminal:" +
-	                     "<br>curl \"<em>your URL</em>\"" +
-	                     "<br><br>For example, the command line that you typed in your console/terminal should look like this: " +
-	                     "<br>curl \"https://www.googleapis.com/mapsengine/v1/tables/01512215508764088245-12798225287603138914/features?version=published&key=AIzaSyAllwffSbT4nwGqtUOvt7oshqSHowuTwN0\""+
+	                       "<br>cURL is a command-line tool that can be used to make HTTP requests. Simply type into your console/terminal:" +
+	                       "<br>curl \"<em>your URL</em>\"" +
+	                       "<br><br>For example, the command line that you typed in your console/terminal should look like this: " +
+	                       "<br>curl \"https://www.googleapis.com/mapsengine/v1/tables/01512215508764088245-12798225287603138914/features?version=published&key=AIzaSyAllwffSbT4nwGqtUOvt7oshqSHowuTwN0\""+
                          "<br><br>You can try to put your command line in the white box below and see what data will be read and displayed in your console. Try it!:)", "lesson6-othermethods");
 
 lesson6.update = updateOtherMethods;
@@ -398,9 +442,6 @@ function executeListInput(){
   } else {
     var address = "";
     for (; i<string.length; i++){
-      if (string[i] === " "){
-        break;
-      }
       address += string[i];
     }
     getFeatures(address);
