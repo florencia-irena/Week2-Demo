@@ -18,10 +18,11 @@
       font-family:arial black;
       vertical-align: middle;
       line-height: 200%; 
-      background-color: #06A2CB;
+      background-color: #3498D8;
+      /*background-color: #06A2CB;*/
       text-align: center;
       color: #FCFCF2;
-      z-index: 2;
+      z-index: 3;
     }
     #false-border {
       position: absolute;
@@ -32,10 +33,49 @@
       top: 0px;
       z-index: -1;
     }
-    #instructions {
+    #prev-next-bar{
       display: block;
       position: absolute;
       top: 10.75%;
+      left: 23%;
+      resize: none;
+      height:3.7%;
+      width: 40%;
+      border: 2px solid #2980B9;
+      font-family: Verdana;
+      background-color: #95A5A6;
+      z-index: 1;
+    }
+    #prev-button{
+      display: block;
+      position: absolute;
+      top: 10%;
+      width: 20%;
+      height: 80%;
+      left: 2%;
+      background-color: #06A2CB;
+      color: white;
+      font-weight: bold;
+      font-family: cursive;
+      border: 1px solid #2980B9;
+    }
+    #next-button{
+      display: block;
+      position: absolute;
+      top: 10%;
+      width: 20%;
+      height: 80%;
+      left: 78%;
+      background-color: #06A2CB;
+      color: white;
+      font-weight: bold;
+      font-family: cursive;
+      border: 1px solid #2980B9;
+    }
+    #instructions {
+      display: block;
+      position: absolute;
+      top: 14.75%;
       left: 23%;
       padding: 1%;
       overflow-y: scroll;
@@ -94,7 +134,7 @@
       resize: none;
       background-color: #383838;
       color: white;
-      z-index: 1;
+      z-index: 2;
       overflow-y: scroll;
       font-family: courier;
     }
@@ -207,6 +247,10 @@
     <img src = "http://www.clker.com/cliparts/b/7/6/5/1308001441853739087google%20maps%20pin.svg.thumb.png" id ="maps-icon"/>
   </div>
   <div id = 'false-border'></div>
+  <div id = 'prev-next-bar'>
+     <input type = 'button' value = '< Prev Lesson' id = 'prev-button'>
+     <input type = 'button' value = 'Next Lesson >' id = 'next-button'>
+  </div>
   <div id = 'instructions'>These are the instructions</div>
   <div id = 'url'>URL:</div>
   <textarea id = 'input-url'>https://www.googleapis.com/mapsengine/v1/tables/01512215508764088245-12798225287603138914/features?version=published&key=AIzaSyAllwffSbT4nwGqtUOvt7oshqSHowuTwN0</textarea>

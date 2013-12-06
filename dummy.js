@@ -89,7 +89,10 @@ $(document).ready(function() {
   $(".lil-button").css('font-size', 0.023*(0.5*$("#buttons").height()+$("#buttons").width()));
   //SUBMIT AND CLEAR BUTTONS
   $("#submit-button").css('font-size', 0.18*($("#submit-button").height()+$("#submit-button").width()));
-  $("#clear-button").css('font-size', 0.18*($("#clear-button").height()+$("#submit-button").width()));
+  $("#clear-button").css('font-size', 0.18*($("#clear-button").height()+$("#clear-button").width()));
+  //PREV AND NEXT BUTTONS
+  $("#prev-button").css('font-size', 0.18*($("#prev-button").height()+0.55*$("#prev-button").width()));
+  $("#next-button").css('font-size', 0.18*($("#next-button").height()+0.55*$("#next-button").width())); 
 });
 
 $(window).resize(function() {
@@ -110,5 +113,8 @@ $(window).resize(function() {
   $(".lil-button").css('font-size', 0.023*(0.5*$("#buttons").height()+$("#buttons").width()));
   //SUBMIT AND CLEAR BUTTONS
   $("#submit-button").css('font-size', 0.18*($("#submit-button").height()+$("#submit-button").width()));
-  $("#clear-button").css('font-size', 0.18*($("#clear-button").height()+$("#submit-button").width()));
+  $("#clear-button").css('font-size', 0.18*($("#clear-button").height()+$("#clear-button").width()));
+  //PREV AND NEXT BUTTONS
+  $("#prev-button").css('font-size', 0.18*($("#prev-button").height()+0.5*$("#prev-button").width()));
+  $("#next-button").css('font-size', 0.18*($("#next-button").height()+0.5*$("#next-button").width())); 
 });
