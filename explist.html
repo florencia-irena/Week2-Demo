@@ -1,0 +1,83 @@
+<!--HTML file for tutorial-->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Introduction</title>
+  <style>
+#listContainer{
+  margin-top:15px;
+}
+ 
+#expList ul, li {
+    list-style: none;
+    margin:0;
+    padding:0;
+    cursor: pointer;
+}
+#expList p {
+    margin:0;
+    display:block;
+}
+#expList p:hover {
+    background-color:#121212;
+}
+#expList li {
+    line-height:140%;
+    text-indent:0px;
+    background-position: 1px 8px;
+    padding-left: 20px;
+    background-repeat: no-repeat;
+}
+ 
+/* Collapsed state for list element */
+#expList .collapsed {
+    background-image: url(../img/collapsed.png);
+}
+/* Expanded state for list element
+/* NOTE: This class must be located UNDER the collapsed one */
+#expList .expanded {
+    background-image: url(../img/expanded.png);
+}
+  </style>
+  <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" ></script>
+   <script type="text/javascript" src="explist.js"></script>
+</head>
+<body>
+  <div id="listContainer">
+    <ul id="expList">
+      <li id = "list0"> <input type = "button" id = "button0" value="click me">
+        <ul>
+          <li><input type = "button" value="click me">
+            <ul>
+              <li><span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sagittis ultricies arcu, quis porttitor risus placerat et. Proin quis metus diam, quis bibendum dolor. Nulla nec dapibus nunc. Quisque ac erat sit amet nisl venenatis consequat nec in nibh. Aliquam viverra vestibulum elit faucibus sollicitudin.</span>
+                          </li>
+                  </ul>
+                    </li>
+              <li>Item A.2</li>
+              <li>Item A.3
+                <ul>
+                    <li>
+                            <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sagittis ultricies arcu, quis porttitor risus placerat et. Proin quis metus diam, quis bibendum dolor. Nulla nec dapibus nunc. Quisque ac erat sit amet nisl venenatis consequat nec in nibh. Aliquam viverra vestibulum elit faucibus sollicitudin.</span>
+                            </li>
+                </ul>
+                    </li>
+           </ul>
+        </li>
+        <li id = "list1"> <input type = "button" id = "button1" value="click me"></li>
+        <<li id = "list2"> <input type = "button" id = "button2" value="click me">
+          <ul>
+                <li>Item C.1</li>
+                <li>Item C.2
+                    <ul>
+                        <li>
+                            <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sagittis ultricies arcu, quis porttitor risus placerat et. Proin quis metus diam, quis bibendum dolor. Nulla nec dapibus nunc. Quisque ac erat sit amet nisl venenatis consequat nec in nibh. Aliquam viverra vestibulum elit faucibus sollicitudin.</span>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+  </ul>
+</div>
+</body>
+</html>
