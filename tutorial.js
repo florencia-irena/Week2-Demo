@@ -437,15 +437,11 @@ function executeListInput(){
       break;
     }
   }
-  if (i === string.length || string[i]!== 'h') {
-    alert ("Wrong URL! See the tutorial again."); 
-  } else {
-    var address = "";
-    for (; i<string.length; i++){
-      address += string[i];
-    }
-    getFeatures(address);
+  var address = "";
+  for (; i<string.length; i++){
+    address += string[i];
   }
+  getFeatures(address);
   
 }
 
@@ -560,6 +556,7 @@ function getFeatures(addressString){
       $data.append("\n");
     },
     error: function(response) {
+      alert ("Oops! You've entered wrong URL! Try again!")
       $data.append("Wrong URL\n");
       response = JSON.parse(response.responseText);
       var errorMess = response.error.errors[0];
