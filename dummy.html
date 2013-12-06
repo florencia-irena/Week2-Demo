@@ -1,0 +1,195 @@
+<!--HTML file for tutorial-->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Tutorial</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+    }
+    #title {
+      position: absolute;
+      width: 76.5%;
+      height: 10%;
+      right: 0px;
+      top: 0px;
+      border: 5px solid #2980B9;
+      font-size: 3vw;
+      font-weight: bold;
+      vertical-align: middle;
+      line-height: 200%; 
+      background-color: #06A2CB;
+      text-align: center;
+      color: #FCFCF2;
+    }
+    #buttons {
+      display: block;
+      position: absolute;
+      height: 100%;
+      padding: 0px;
+      top: 0px;
+      width: 23%;
+      float: left;
+      background-color: #FCFCF2;
+      border-right: 3px solid #2980B9;
+    }
+    #instructions {
+      display: block;
+      position: absolute;
+      font-size: 20px;
+      top: 10.75%;
+      left: 23%;
+      padding: 1%;
+      overflow-y: scroll;
+      resize: none;
+      height:37%;
+      width: 38%;
+      color: #2980B9;
+      font-weight: bold;
+      background-color: #AADAFA
+    }
+    #url {
+      display: block;
+      position: absolute;
+      top:51%;
+      left: 23%;
+      height: 3%;
+      width: 3.8%;
+      padding: 0.5%;
+      font-size: 2.8vh;
+      background-color: #06A2CB;
+      color: white;
+      font-weight: bold;
+      border: 2px solid #2980B9;
+    }
+    #input-url {
+      display: block;
+      position: absolute;
+      top:51%;
+      left: 28%;
+      width: 34.75%;
+      height: 4.65%;
+      resize: none;
+      background-color: #FCFCF2;
+    }
+    #input-js {
+      display: block;
+      position: absolute;
+      top:56%;
+      left: 23%;
+      width: 39.75%;
+      height: 39.5%;
+      resize: none;
+      overflow-y: scroll;
+      background-color: #FCFCF2;
+    }
+    #output {
+      display: block;
+      position: absolute;
+      padding: 1%;
+      top:10.75%;
+      left: 63%;
+      width: 35%;
+      height: 85.9%;
+      resize: none;
+      background-color: #383838;
+      color: white;
+      z-index: 1;
+      overflow-y: scroll;
+    }
+    .button {
+      display: block;
+      position: absolute;
+      left: 5%;
+      width: 90%;
+      height: 5%;
+      color: #FCFCF2;
+      background-color: #27AE60;
+      font-size: 20px;
+      font-weight: bold;
+      border: 2px solid #27AE60;
+    }
+    .button-child {
+      display: block;
+      position: absolute;
+      left: 12%;
+      width: 83%;
+      height: 3%;
+      color: white;
+      font-weight: bold;
+      font-size: 14px;
+      background-color: #2ECC71;
+      opacity: 0.8;
+    }
+    #lesson0 {
+      top: 5%;
+    }
+    #lesson1 {
+      top: 16%;
+    }
+    #lesson0-0 {
+      top: 10%;
+    }
+    #lesson0-1 {
+      top: 13%;
+    }
+    #button-bar {
+      display: block;
+      position: absolute;
+      top: 96%;
+      height: 4%;
+      width: 40.3%;
+      left: 23%;
+      background-color: #74747A;
+    }
+    #submit-button {
+      display: block;
+      position: absolute;
+      top: 10%;
+      width: 10%;
+      height: 80%;
+      left: 2%;
+      background-color: #06A2CB;
+      color: white;
+      font-weight: bold;
+      border: 1px solid #2980B9;
+    }
+    #clear-button {
+      display: block;
+      position: absolute;
+      top: 10%;
+      width: 10%;
+      height: 80%;
+      left: 14%;
+      background-color: #06A2CB;
+      color: white;
+      font-weight: bold;
+      border: 1px solid #2980B9;
+    }
+
+  </style>
+  <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" ></script>
+  <script type="text/javascript" src="dummy.js"></script>
+</head>
+<body>
+  <div id = 'title'>Google Maps Engine API Tutorial</div>
+  <div id = 'instructions'>These are the instructions</div>
+  <div id = 'url'>URL:</div>
+  <textarea id = 'input-url'>https://www.googleapis.com/mapsengine/v1/tables/01512215508764088245-12798225287603138914/features?version=published&key=AIzaSyAllwffSbT4nwGqtUOvt7oshqSHowuTwN0</textarea>
+  <textarea id = 'input-js'>I AM THE JS INPUT</textarea>
+  <div id = 'output'>This is where the output goes. JSON JSON JSON.</div>
+  <div id = 'buttons'>
+    <input class = 'button' type = 'button' value = 'Introduction' id = 'lesson0'>
+      <input class = 'button-child' type = 'button' value = "What is GME API?" id = 'lesson0-0'>
+      <input class = 'button-child' type = 'button' value = "Getting an API Key" id = 'lesson0-1'>
+    <input class = 'button' type = 'button' value = 'Lesson 1' id = 'lesson1'>
+  </div>
+  <div id = 'button-bar'>
+    <input type = 'button' value = 'Submit' id = 'submit-button'>
+    <input type = 'button' value = 'Clear' id = 'clear-button'>
+  </div>
+</body>
+</html>
