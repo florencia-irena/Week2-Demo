@@ -1,3 +1,4 @@
+
 $(document).ready(function() {
   //GME API TITLE
   $("#title").css('font-size', 0.031*($("#title").height()+$("#title").width()));
