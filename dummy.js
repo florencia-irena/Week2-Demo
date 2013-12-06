@@ -1,28 +1,28 @@
-  function prepareMenu() {
-    $('#expList').find('li:has(ul)')
-      .click( function(event) {
+function prepareMenu() {
+  $('#expList').find('li:has(ul)')
+    .click( function(event) {
+      if (this == event.target) {
+        $(this).toggleClass('expanded');
+        $(this).children('ul').toggle('medium');
+      }
+      return false;
+    })
+    .addClass('collapsed')
+    .children('ul').hide();
+
+    $list = $('#list0');
+    $('#lesson0').click( function(event) {
         if (this == event.target) {
-          $(this).toggleClass('expanded');
-          $(this).children('ul').toggle('medium');
+          $list.toggleClass('expanded');
+          $list.children('ul').toggle('medium');
         }
         return false;
-      })
-      .addClass('collapsed')
-      .children('ul').hide();
-
-      $list = $('#list0');
-      $('#lesson0').click( function(event) {
-          if (this == event.target) {
-            $list.toggleClass('expanded');
-            $list.children('ul').toggle('medium');
-          }
-          return false;
-      })
-  };
+    })
+};
 
 
 $(document).ready(function() {
-    prepareMenu()
+  prepareMenu();
   //GME API TITLE
   $("#title").css('font-size', 0.031*($("#title").height()+$("#title").width()));
   //INSTRUCTIONS
@@ -36,15 +36,15 @@ $(document).ready(function() {
   //OUTPUT
   $("#output").css('font-size', 0.013*($("#output").height()+$("#output").width()));
   //LESSON BUTTONS
-  $(".button").css('font-size', 0.120*($(".button").height()+0.5*$(".button").width()));
-  $(".button-child").css('font-size', 0.09*($(".button-child").height()+0.5*$(".button-child").width()));
+  $(".big-button").css('font-size', 0.028*(0.5*$("#buttons").height()+$("#buttons").width()));
+  $(".lil-button").css('font-size', 0.023*(0.5*$("#buttons").height()+$("#buttons").width()));
   //SUBMIT AND CLEAR BUTTONS
   $("#submit-button").css('font-size', 0.18*($("#submit-button").height()+$("#submit-button").width()));
   $("#clear-button").css('font-size', 0.18*($("#clear-button").height()+$("#submit-button").width()));
 });
 
 $(window).resize(function() {
-  //GME API TITLE
+   //GME API TITLE
   $("#title").css('font-size', 0.031*($("#title").height()+$("#title").width()));
   //INSTRUCTIONS
   $("#instructions").css('font-size', 0.021*($("#instructions").height()+$("#instructions").width()));
@@ -57,8 +57,8 @@ $(window).resize(function() {
   //OUTPUT
   $("#output").css('font-size', 0.013*($("#output").height()+$("#output").width()));
   //LESSON BUTTONS
-  $(".button").css('font-size', 0.120*($(".button").height()+0.5*$(".button").width()));
-  $(".button-child").css('font-size', 0.09*($(".button-child").height()+0.5*$(".button-child").width()));
+  $(".big-button").css('font-size', 0.028*(0.5*$("#buttons").height()+$("#buttons").width()));
+  $(".lil-button").css('font-size', 0.023*(0.5*$("#buttons").height()+$("#buttons").width()));
   //SUBMIT AND CLEAR BUTTONS
   $("#submit-button").css('font-size', 0.18*($("#submit-button").height()+$("#submit-button").width()));
   $("#clear-button").css('font-size', 0.18*($("#clear-button").height()+$("#submit-button").width()));
