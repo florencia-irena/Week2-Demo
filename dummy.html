@@ -15,8 +15,7 @@
       height: 10%;
       right: 0.2%;
       top: 0.4%;
-      font-size: 3vw;
-      font-weight: bold;
+      font-family:arial black;
       vertical-align: middle;
       line-height: 200%; 
       background-color: #06A2CB;
@@ -36,7 +35,6 @@
     #instructions {
       display: block;
       position: absolute;
-      font-size: 20px;
       top: 10.75%;
       left: 23%;
       padding: 1%;
@@ -46,6 +44,7 @@
       width: 38%;
       color: #2980B9;
       font-weight: bold;
+      font-family: Verdana;
       background-color: #AADAFA
     }
     #url {
@@ -56,7 +55,6 @@
       height: 3%;
       width: 3.8%;
       padding: 0.5%;
-      font-size: 2.8vh;
       background-color: #06A2CB;
       color: white;
       font-weight: bold;
@@ -71,6 +69,7 @@
       height: 4.65%;
       resize: none;
       background-color: #FCFCF2;
+      font-family: monospace;
     }
     #input-js {
       display: block;
@@ -82,6 +81,7 @@
       resize: none;
       overflow-y: scroll;
       background-color: #FCFCF2;
+      font-family: monospace;
     }
     #output {
       display: block;
@@ -96,6 +96,7 @@
       color: white;
       z-index: 1;
       overflow-y: scroll;
+      font-family: courier;
     }
     #buttons {
       display: block;
@@ -109,46 +110,48 @@
       border-right: 3px solid #2980B9;
     }
     #expList ul, li {
-        list-style: none;
-        margin:0;
-        padding:0;
-        cursor: pointer;
+      list-style: none;
+      margin:0;
+      padding:0;
+      cursor: pointer;
     }
     #expList p {
-        margin:0;
-        display:block;
+      margin:0;
+      display:block;
     }
     #expList p:hover {
-        background-color:#121212;
+      background-color:#121212;
     }
     #expList li {
-        line-height:140%;
-        text-indent:0px;
-        background-position: 1px 8px;
-        padding-left: 5%;
-        background-repeat: no-repeat;
+      line-height:140%;
+      text-indent:0px;
+      background-position: 1px 8px;
+      padding-left: 5%;
+      background-repeat: no-repeat;
     }
     #expList li li {
-        padding-left: 10%;
+      padding-left: 10%;
     }
     .big-button {
-          display: block;
-          width: 90%;
-          height: 20%;
-          color: #FCFCF2;
-          background-color: #27AE60;
-          font-weight: bold;
-          border: 2px solid #27AE60;
+      display: block;
+      width: 90%;
+      height: 20%;
+      color: #FCFCF2;
+      background-color: #27AE60;
+      font-weight: bold;
+      border: 2px solid #7F8C8D;
+      font-family: cursive;
     }
     .lil-button {
-          display: block;
-          width: 89%;
-          height: 8%;
-          color: white;
-          font-weight: bold;
-          background-color: #2ECC71;
-          opacity: 0.8;
-          border: 2px solid #27AE60;
+      display: block;
+      width: 89%;
+      height: 8%;
+      color: white;
+      font-weight: bold;
+      background-color: #2ECC71;
+      opacity: 0.8;
+      border: 2px solid #27AE60;
+      font-family: cursive;
     }
     #button-bar {
       display: block;
@@ -169,6 +172,7 @@
       background-color: #06A2CB;
       color: white;
       font-weight: bold;
+      font-family: cursive;
       border: 1px solid #2980B9;
     }
     #clear-button {
@@ -181,7 +185,16 @@
       background-color: #06A2CB;
       color: white;
       font-weight: bold;
+      font-family: cursive;
       border: 1px solid #2980B9;
+    }
+     #maps-icon{
+      display: block;
+      position: absolute;
+      width: 8%;
+      height: 90%;
+      right: 2%;
+      top: 8%;
     }
 
   </style>
@@ -190,7 +203,9 @@
   <script type="text/javascript" src="dummy.js"></script>
 </head>
 <body>
-  <div id = 'title'>Google Maps Engine API Tutorial</div>
+  <div id = 'title'>Google Maps Engine API Tutorial
+    <img src = "http://www.clker.com/cliparts/b/7/6/5/1308001441853739087google%20maps%20pin.svg.thumb.png" id ="maps-icon"/>
+  </div>
   <div id = 'false-border'></div>
   <div id = 'instructions'>These are the instructions</div>
   <div id = 'url'>URL:</div>
@@ -199,14 +214,24 @@
   <div id = 'output'>This is where the output goes. JSON JSON JSON.</div>
   <div id = 'buttons'>
     <ul id="expList">
-      <li id = "list0"> <input class = 'big-button' type = "button" id = "lesson0" value="Introduction">
+      <li id = "list0"> <input class = 'big-button' type = "button" id = "lesson0" value="INTRODUCTION">
         <ul>
           <li><input class = 'lil-button' type = "button" value="What is GME API?" id = 'lesson0-0'></li>
           <li><input class = 'lil-button' type = "button" value="Getting an API Key" id = 'lesson0-1'></li>
         </ul>
       </li>
-      <li id = "list1"> <input class = 'big-button' type = "button" id = "button1" value="Lesson 1" id = 'lesson1'></li>
-      <li id = "list2"> <input class = 'big-button' type = "button" id = "button2" value="Lesson 2" id = 'lesson2'></li>
+      <li id = "list1"> <input class = 'big-button' type = "button" id = "lesson1" value="LESSON 1">
+        <ul>
+          <li><input class = 'lil-button' type = "button" value="Lesson 1-0" id = 'lesson1-0'></li>
+          <li><input class = 'lil-button' type = "button" value="Lesson 1-1" id = 'lesson1-1'></li>
+          <li><input class = 'lil-button' type = "button" value="Lesson 1-2" id = 'lesson1-1'></li>
+        </ul>
+      </li>
+      <li id = "list2"> <input class = 'big-button' type = "button" id = "lesson2" value="LESSON 2">
+        <ul>
+          <li><input class = 'lil-button' type = "button" value="Lesson 2-0" id = 'lesson2-0'></li>
+        </ul>
+      </li>
     </ul>
   </div>
   <div id = 'button-bar'>
