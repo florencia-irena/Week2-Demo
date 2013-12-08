@@ -1,65 +1,65 @@
+var lessonArray = [$('#list0'), $('#list1'), $('#list2')]
+
+  $(document).ready( function() {
+    prepareMenu()
+    $list0.addClass('collapsed');
+    $list0.children('ul').hide();
+    $list1.addClass('collapsed');
+    $list1.children('ul').hide();
+    $list2.addClass('collapsed');
+    $list2.children('ul').hide();
+    /*
+    $(window).resize(function() {
+      $urlHeight = $('#url').height();
+      $urlWidth = $('#url').width();
+      if ($urlHeight*0.8 < $urlWidth*0.9) {
+        $('#url').css('font-size', $urlHeight*0.8)
+      } else {
+        $('#url').css('font-size', $urlWidth*0.9)
+      }
+    });
+  */
+  });
   function prepareMenu() {
-    $('#expList').find('li:has(ul)')
+      $list0 = $('#list0');
+      $list1 = $('#list1');
+      $list2 = $('#list2');
+
+      $('#lesson0').click( function(event) {
+        $list0.toggleClass('expanded');
+        $list0.children('ul').toggle('medium');
+        $list1.children('ul').hide('medium');
+        $list2.children('ul').hide('medium');
+          return false;
+      })
+
+      $('#lesson1').click( function(event) {
+          if (this == event.target) {
+            $list1.toggleClass('expanded');
+            $list1.children('ul').toggle('medium');
+          }
+        $list0.children('ul').hide('medium');
+        $list2.children('ul').hide('medium');
+          return false;
+      })
+
+      $('#lesson2').click( function(event) {
+          if (this == event.target) {
+            $list2.toggleClass('expanded');
+            $list2.children('ul').toggle('medium');
+          }
+        $list1.children('ul').hide('medium');
+        $list0.children('ul').hide('medium');
+          return false;
+      })
+
+  };
+
+  /*    $('#expList').find('li:has(ul)')
       .click( function(event) {
         if (this == event.target) {
           $(this).toggleClass('expanded');
           $(this).children('ul').toggle('medium');
         }
         return false;
-      })
-      .addClass('collapsed')
-      .children('ul').hide();
-
-      $list = $('#list0');
-      $('#lesson0').click( function(event) {
-          if (this == event.target) {
-            $list.toggleClass('expanded');
-            $list.children('ul').toggle('medium');
-          }
-          return false;
-      })
-  };
-
-
-$(document).ready(function() {
-    prepareMenu()
-  //GME API TITLE
-  $("#title").css('font-size', 0.031*($("#title").height()+$("#title").width()));
-  //INSTRUCTIONS
-  $("#instructions").css('font-size', 0.021*($("#instructions").height()+$("#instructions").width()));
-  //URL BOX
-  $("#url").css('font-size', 0.26*($("#url").height()+$("#url").width()));
-  //URL INPUT
-  $("#input-url").css('font-size', 0.036*($("#input-url").height()+0.5*$("#input-url").width()));
-  //JSON INPUT
-  $("#input-js").css('font-size', 0.013*($("#input-js").height()+$("#input-js").width()));
-  //OUTPUT
-  $("#output").css('font-size', 0.013*($("#output").height()+$("#output").width()));
-  //LESSON BUTTONS
-  $(".button").css('font-size', 0.060*($(".button").height()+$(".button").width()));
-  $(".button-child").css('font-size', 0.045*($(".button-child").height()+$(".button-child").width()));
-  //SUBMIT AND CLEAR BUTTONS
-  $("#submit-button").css('font-size', 0.18*($("#submit-button").height()+$("#submit-button").width()));
-  $("#clear-button").css('font-size', 0.18*($("#clear-button").height()+$("#submit-button").width()));
-});
-
-$(window).resize(function() {
-  //GME API TITLE
-  $("#title").css('font-size', 0.031*($("#title").height()+$("#title").width()));
-  //INSTRUCTIONS
-  $("#instructions").css('font-size', 0.021*($("#instructions").height()+$("#instructions").width()));
-  //URL BOX
-  $("#url").css('font-size', 0.26*($("#url").height()+$("#url").width()));
-  //URL INPUT
-  $("#input-url").css('font-size', 0.036*($("#input-url").height()+0.5*$("#input-url").width()));
-  //JSON INPUT
-  $("#input-js").css('font-size', 0.013*($("#input-js").height()+$("#input-js").width()));
-  //OUTPUT
-  $("#output").css('font-size', 0.013*($("#output").height()+$("#output").width()));
-  //LESSON BUTTONS
-  $(".button").css('font-size', 0.060*($(".button").height()+$(".button").width()));
-  $(".button-child").css('font-size', 0.045*($(".button-child").height()+$(".button-child").width()));
-  //SUBMIT AND CLEAR BUTTONS
-  $("#submit-button").css('font-size', 0.18*($("#submit-button").height()+$("#submit-button").width()));
-  $("#clear-button").css('font-size', 0.18*($("#clear-button").height()+$("#submit-button").width()));
-});
+      })*/
