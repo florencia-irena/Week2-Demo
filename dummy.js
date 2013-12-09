@@ -1,23 +1,4 @@
-  $(document).ready( function() {
-    prepareMenu()
-    $list0.addClass('collapsed');
-    $list0.children('ul').hide();
-    $list1.addClass('collapsed');
-    $list1.children('ul').hide();
-    $list2.addClass('collapsed');
-    $list2.children('ul').hide();
-    /*
-    $(window).resize(function() {
-      $urlHeight = $('#url').height();
-      $urlWidth = $('#url').width();
-      if ($urlHeight*0.8 < $urlWidth*0.9) {
-        $('#url').css('font-size', $urlHeight*0.8)
-      } else {
-        $('#url').css('font-size', $urlWidth*0.9)
-      }
-    });
-  */
-  });
+
 
   function prepareMenu() {
       $list0 = $('#list0');
@@ -33,25 +14,21 @@
       })
 
       $('#lesson1').click( function(event) {
-          if (this == event.target) {
-            $list1.toggleClass('expanded');
-            $list1.children('ul').toggle('medium');
-          }
+        $list1.toggleClass('expanded');
+        $list1.children('ul').toggle('medium');
         $list0.children('ul').hide('medium');
         $list2.children('ul').hide('medium');
           return false;
       })
 
       $('#lesson2').click( function(event) {
-          if (this == event.target) {
-            $list2.toggleClass('expanded');
-            $list2.children('ul').toggle('medium');
-          }
+        $list2.toggleClass('expanded');
+        $list2.children('ul').toggle('medium');
         $list1.children('ul').hide('medium');
         $list0.children('ul').hide('medium');
           return false;
       })
-  }
+  };
 /*
 function prepareMenu() {
   $('#expList').find('li:has(ul)')
@@ -133,11 +110,15 @@ function prepareMenu() {
           return false;
       })
   };
-  */
-
-
+*/
 $(document).ready(function() {
   prepareMenu();
+    $list0.addClass('collapsed');
+    $list0.children('ul').hide();
+    $list1.addClass('collapsed');
+    $list1.children('ul').hide();
+    $list2.addClass('collapsed');
+    $list2.children('ul').hide();
   //GME API TITLE
   $("#title").css('font-size', 0.031*($("#title").height()+$("#title").width()));
   //INSTRUCTIONS
