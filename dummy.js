@@ -6,17 +6,6 @@ $(document).ready( function() {
   $list1.children('ul').hide();
   $list2.addClass('collapsed');
   $list2.children('ul').hide();
-  /*
-  $(window).resize(function() {
-    $urlHeight = $('#url').height();
-    $urlWidth = $('#url').width();
-    if ($urlHeight*0.8 < $urlWidth*0.9) {
-      $('#url').css('font-size', $urlHeight*0.8)
-    } else {
-      $('#url').css('font-size', $urlWidth*0.9)
-    }
-  });
-*/
   $("#title").css('font-size', 0.031*($("#title").height()+$("#title").width()));
   //INSTRUCTIONS
   $("#instructions").css('font-size', 0.020*($("#instructions").height()+$("#instructions").width()));
@@ -39,6 +28,7 @@ $(document).ready( function() {
   $("#next-button").css('font-size', 0.18*($("#next-button").height()+0.55*$("#next-button").width())); 
 });
 
+
 function prepareMenu() {
   $list0 = $('#list0');
   $list1 = $('#list1');
@@ -53,107 +43,21 @@ function prepareMenu() {
   })
 
   $('#lesson1').click( function(event) {
-      if (this == event.target) {
-        $list1.toggleClass('expanded');
-        $list1.children('ul').toggle('medium');
-      }
+    $list1.toggleClass('expanded');
+    $list1.children('ul').toggle('medium');
     $list0.children('ul').hide('medium');
     $list2.children('ul').hide('medium');
       return false;
   })
 
   $('#lesson2').click( function(event) {
-      if (this == event.target) {
-        $list2.toggleClass('expanded');
-        $list2.children('ul').toggle('medium');
-      }
+    $list2.toggleClass('expanded');
+    $list2.children('ul').toggle('medium');
     $list1.children('ul').hide('medium');
     $list0.children('ul').hide('medium');
       return false;
   })
 }
-/*
-function prepareMenu() {
-  $('#expList').find('li:has(ul)')
-    .click( function(event) {
-      if (this == event.target) {
-        $(this).toggleClass('expanded');
-        $(this).children('ul').toggle('medium');
-      }
-      return false;
-    })
-    .addClass('collapsed')
-    .children('ul').hide();
-
-    var $list = $('#list0');
-    $('#lesson0').click( function(event) {
-      $('#expList').find('li:has(ul)')
-      .click( function(event) {
-        if (this == event.target) {
-          $(this).toggleClass('expanded');
-          $(this).children('ul').toggle('medium');
-        }
-        return false;
-      })
-    .addClass('collapsed')
-    .children('ul').hide();
-      if (this == event.target) {
-        $list.toggleClass('expanded');
-        $list.children('ul').toggle('medium');
-      }
-      return false;
-    })
-    
-    var $list1 = $('#list1');
-    $('#lesson1').click( function(event) {
-      $('#expList').find('li:has(ul)')
-      .click( function(event) {
-        if (this == event.target) {
-          $(this).toggleClass('expanded');
-          $(this).children('ul').toggle('medium');
-        }
-        return false;
-      })
-      .addClass('collapsed')
-      .children('ul').hide();
-      if (this == event.target) {
-        $list1.toggleClass('expanded');
-        $list1.children('ul').toggle('medium');
-      }
-      return false;
-    })
-
-    var $list2 = $('#list2');
-    $('#lesson2').click( function(event) {
-      $('#expList').find('li:has(ul)')
-      .click( function(event) {
-        if (this == event.target) {
-          $(this).toggleClass('expanded');
-          $(this).children('ul').toggle('medium');
-        }
-        return false;
-      })
-      .addClass('collapsed')
-      .children('ul').hide();
-      if (this == event.target) {
-        $list2.toggleClass('expanded');
-        $list2.children('ul').toggle('medium');
-      }
-      return false;
-    })
-
-};
-      $('#lesson2').click( function(event) {
-          if (this == event.target) {
-            $list2.toggleClass('expanded');
-            $list2.children('ul').toggle('medium');
-          }
-        $list1.children('ul').hide('medium');
-        $list0.children('ul').hide('medium');
-          return false;
-      })
-  };
-  */
 
 $(window).resize(function() {
    //GME API TITLE
