@@ -1,125 +1,11 @@
-
-
-  function prepareMenu() {
-      $list0 = $('#list0');
-      $list1 = $('#list1');
-      $list2 = $('#list2');
-
-      $('#lesson0').click( function(event) {
-        $list0.toggleClass('expanded');
-        $list0.children('ul').toggle('medium');
-        $list1.children('ul').hide('medium');
-        $list2.children('ul').hide('medium');
-          return false;
-      })
-
-      $('#lesson1').click( function(event) {
-        $list1.toggleClass('expanded');
-        $list1.children('ul').toggle('medium');
-        $list0.children('ul').hide('medium');
-        $list2.children('ul').hide('medium');
-          return false;
-      })
-
-      $('#lesson2').click( function(event) {
-        $list2.toggleClass('expanded');
-        $list2.children('ul').toggle('medium');
-        $list1.children('ul').hide('medium');
-        $list0.children('ul').hide('medium');
-          return false;
-      })
-  };
-/*
-function prepareMenu() {
-  $('#expList').find('li:has(ul)')
-    .click( function(event) {
-      if (this == event.target) {
-        $(this).toggleClass('expanded');
-        $(this).children('ul').toggle('medium');
-      }
-      return false;
-    })
-    .addClass('collapsed')
-    .children('ul').hide();
-
-    var $list = $('#list0');
-    $('#lesson0').click( function(event) {
-      $('#expList').find('li:has(ul)')
-      .click( function(event) {
-        if (this == event.target) {
-          $(this).toggleClass('expanded');
-          $(this).children('ul').toggle('medium');
-        }
-        return false;
-      })
-    .addClass('collapsed')
-    .children('ul').hide();
-      if (this == event.target) {
-        $list.toggleClass('expanded');
-        $list.children('ul').toggle('medium');
-      }
-      return false;
-    })
-    
-    var $list1 = $('#list1');
-    $('#lesson1').click( function(event) {
-      $('#expList').find('li:has(ul)')
-      .click( function(event) {
-        if (this == event.target) {
-          $(this).toggleClass('expanded');
-          $(this).children('ul').toggle('medium');
-        }
-        return false;
-      })
-      .addClass('collapsed')
-      .children('ul').hide();
-      if (this == event.target) {
-        $list1.toggleClass('expanded');
-        $list1.children('ul').toggle('medium');
-      }
-      return false;
-    })
-
-    var $list2 = $('#list2');
-    $('#lesson2').click( function(event) {
-      $('#expList').find('li:has(ul)')
-      .click( function(event) {
-        if (this == event.target) {
-          $(this).toggleClass('expanded');
-          $(this).children('ul').toggle('medium');
-        }
-        return false;
-      })
-      .addClass('collapsed')
-      .children('ul').hide();
-      if (this == event.target) {
-        $list2.toggleClass('expanded');
-        $list2.children('ul').toggle('medium');
-      }
-      return false;
-    })
-
-};
-      $('#lesson2').click( function(event) {
-          if (this == event.target) {
-            $list2.toggleClass('expanded');
-            $list2.children('ul').toggle('medium');
-          }
-        $list1.children('ul').hide('medium');
-        $list0.children('ul').hide('medium');
-          return false;
-      })
-  };
-*/
-$(document).ready(function() {
+$(document).ready( function() {
   prepareMenu();
-    $list0.addClass('collapsed');
-    $list0.children('ul').hide();
-    $list1.addClass('collapsed');
-    $list1.children('ul').hide();
-    $list2.addClass('collapsed');
-    $list2.children('ul').hide();
-  //GME API TITLE
+  $list0.addClass('collapsed');
+  $list0.children('ul').hide();
+  $list1.addClass('collapsed');
+  $list1.children('ul').hide();
+  $list2.addClass('collapsed');
+  $list2.children('ul').hide();
   $("#title").css('font-size', 0.031*($("#title").height()+$("#title").width()));
   //INSTRUCTIONS
   $("#instructions").css('font-size', 0.020*($("#instructions").height()+$("#instructions").width()));
@@ -141,6 +27,37 @@ $(document).ready(function() {
   $("#prev-button").css('font-size', 0.18*($("#prev-button").height()+0.55*$("#prev-button").width()));
   $("#next-button").css('font-size', 0.18*($("#next-button").height()+0.55*$("#next-button").width())); 
 });
+
+
+function prepareMenu() {
+  $list0 = $('#list0');
+  $list1 = $('#list1');
+  $list2 = $('#list2');
+
+  $('#lesson0').click( function(event) {
+    $list0.toggleClass('expanded');
+    $list0.children('ul').toggle('medium');
+    $list1.children('ul').hide('medium');
+    $list2.children('ul').hide('medium');
+      return false;
+  })
+
+  $('#lesson1').click( function(event) {
+    $list1.toggleClass('expanded');
+    $list1.children('ul').toggle('medium');
+    $list0.children('ul').hide('medium');
+    $list2.children('ul').hide('medium');
+      return false;
+  })
+
+  $('#lesson2').click( function(event) {
+    $list2.toggleClass('expanded');
+    $list2.children('ul').toggle('medium');
+    $list1.children('ul').hide('medium');
+    $list0.children('ul').hide('medium');
+      return false;
+  })
+}
 
 $(window).resize(function() {
    //GME API TITLE
