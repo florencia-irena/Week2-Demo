@@ -18,16 +18,10 @@ function Lesson(title, blurb, divID) {
 
 
 //THE LESSONS
-var lesson0 = new Lesson("Introduction", "Welcome to Google Maps API tutorial. <br> In this tutorial, we will teach you how to read public data from a Google map project."+
-                        "<br>To begin the tutorial, you can click the tutorial menu on the left. Enjoy!", "lesson0-intro");
+var lesson0 = new Lesson("Introduction", "Welcome to Google Maps API tutorial.", "lesson0-intro");
 lesson0.update = updateIntro;
 lesson0.submit = updateIntro;
-var lesson1 = new Lesson("GME API", "The Google Maps Engine API (Application Programming Interface) is a RESTful API" +
-                         " where resources are represented as JavaScript Object Notation (JSON). This makes it simple for developers to create, share" +
-                         " and publish their own custom Google maps and develop applications for a number of platforms.<br> The interface allows" +
-                         " users to Create, Read, Upload, Update and Delete data from custom tables using simple HTTP requests.<br><br> As stated" +
-                         " in the introduction, this tutorial will focus on reading public data and customising the JSON resources." +
-                         " If you want to make your data public, you can follow the steps in this link: https://support.google.com/mapsengine/answer/3164737?hl=en", "lesson1-gmeapi");
+var lesson1 = new Lesson("GME API", "The Google Maps Engine API (Application Programming Interface)...", "lesson1-gmeapi");
 lesson1.update = updateGMEAPI;
 lesson1.submit = updateGMEAPI;
 var lesson2 = new Lesson("API Key", "For this tutorial you will need an API key in order to access the data. To obtain an API Key" +
@@ -168,7 +162,7 @@ google.maps.event.addDomListener(window, 'load', function initialize(){
   createInputOutput();
   //dynamically changing the divs
 
-  document.getElementById('instructions').style.width = winWidth - 240 + 'px';
+  document.getElementById('instructions').style.width = winWidth - 240 +' px';
   /*console.log('window height: ' + $( window ).height());
   console.log('document height: ' + $(document).height());
   console.log('window width: ' + $( window ).width());
