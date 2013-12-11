@@ -1,0 +1,312 @@
+<!--HTML file for tutorial-->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Tutorial</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+    }
+    #title {
+      position: absolute;
+      width: 76.5%;
+      height: 10%;
+      right: 0.2%;
+      top: 0.4%;
+      font-family:arial;
+      font-weight: bold;
+      vertical-align: middle;
+      line-height: 200%; 
+      background-color: white;
+      /*background-color: #06A2CB;*/
+      text-align: center;
+      color: #DD4B39;
+      z-index: 3;
+    }
+    #false-border {
+      position: absolute;
+      background-color: #white;
+      width: 78%;
+      height: 11%;
+      right: 0px;
+      top: 0px;
+      z-index: -1;
+    }
+    #prev-next-bar{
+      display: block;
+      position: absolute;
+      top: 10.75%;
+      left: 23%;
+      resize: none;
+      height:3.7%;
+      width: 40%;
+      border: 2px solid #e5e5e5;
+      font-family: Verdana;
+      background-color: #F1F1F1;
+      z-index: 1;
+    }
+    #prev-button{
+      display: block;
+      position: absolute;
+      top: 10%;
+      width: 20%;
+      height: 80%;
+      left: 2%;
+      background-color: #4D90FE; /*#06A2CB*/
+      color: white;
+      font-weight: bold;
+      font-family: Arial regular;
+      border: 1px solid #1155CC;
+    }
+    #next-button{
+      display: block;
+      position: absolute;
+      top: 10%;
+      width: 20%;
+      height: 80%;
+      left: 78%;
+      background-color: #4D90FE;
+      color: white;
+      font-weight: bold;
+      font-family: Arial regular;
+      border: 1px solid #1155CC;
+    }
+    #instructions {
+      display: block;
+      position: absolute;
+      top: 14.75%;
+      left: 23%;
+      padding: 1%;
+      overflow-y: scroll;
+      resize: none;
+      height:37%;
+      width: 38%;
+      color: black;
+      font-family: Arial;
+      background-color: #FFFFFF
+    }
+    #url {
+      display: block;
+      position: absolute;
+      top:51%;
+      left: 23%;
+      height: 3%;
+      width: 3.8%;
+      padding: 0.5%;
+      background-color: #4D90FE;
+      color: white;
+      font-weight: bold;
+      border: 2px solid #1155CC;
+    }
+    #input-url {
+      display: block;
+      position: absolute;
+      top:51%;
+      left: 28%;
+      width: 34.75%;
+      height: 4.65%;
+      resize: none;
+      background-color: #FFFFFF;
+      font-family: monospace;
+    }
+    #input-js {
+      display: block;
+      position: absolute;
+      top:56%;
+      left: 23%;
+      width: 39.75%;
+      height: 39.5%;
+      resize: none;
+      overflow-y: scroll;
+      background-color: #FFFFFF;
+      font-family: monospace;
+    }
+    #output {
+      display: block;
+      position: absolute;
+      padding: 1%;
+      top:10.75%;
+      left: 63%;
+      width: 35%;
+      height: 85.9%;
+      resize: none;
+      background-color: #2D2D2D;
+      color: white;
+      z-index: 2;
+      overflow-y: scroll;
+      font-family: Arial;
+    }
+    #buttons {
+      z-index: 2;
+      display: block;
+      position: absolute;
+      height: 100%;
+      padding: 0px;
+      top: 0px;
+      width: 23%;
+      float: left;
+      background-color: #FFFFFF;
+      border-right: 2px solid #e5e5e5;
+    }
+    #expList ul, li {
+      list-style: none;
+      margin:0;
+      padding:0;
+      cursor: pointer;
+    }
+    #expList p {
+      margin:0;
+      display:block;
+    }
+    #expList p:hover {
+      background-color:#121212;
+    }
+    #expList li {
+      line-height:140%;
+      text-indent:0px;
+      background-position: 1px 8px;
+      padding-left: 5%;
+      background-repeat: no-repeat;
+    }
+    #expList li li {
+      padding-left: 10%;
+    }
+    #expList li li li{
+      padding-left: 10%;
+    }
+    .parent {
+      display: block;
+      width: 90%;
+      height: 20%;
+      color: #DD4B39 ; 
+      background-color: #FFFFFF;
+      font-weight: bold;
+      border-top: 2px solid #ebebeb;
+      border-bottom: 2px solid #ebebeb;
+      border-right: none;
+      border-left: none;
+      font-family: Arial regular;
+    }
+    .child {
+      display: block;
+      width: 89%;
+      height: 8%;
+      color: #777777;
+      font-weight: bold;
+      background-color: #FFFFFF;
+      border-top: 1px solid #ebebeb;
+      border-bottom: 1px solid #ebebeb;
+      border-right: none;
+      border-left: none;
+      font-family: Arial regular;
+    }
+    .grandchild {
+      display: block;
+      width: 89%;
+      height: 8%;
+      color: #777777;
+      font-weight: bold;
+      background-color: #FFFFFF;
+      border-top: 1px solid #ebebeb;
+      border-bottom: 1px solid #ebebeb;
+      border-right: none;
+      border-left: none;
+      font-family: Arial regular;
+    }
+    #button-bar {
+      display: block;
+      position: absolute;
+      top: 96%;
+      height: 4%;
+      width: 40.3%;
+      left: 23%;
+      background-color: #F1F1F1;
+    }
+    #submit-button {
+      display: block;
+      position: absolute;
+      top: 10%;
+      width: 10%;
+      height: 80%;
+      left: 2%;
+      background-color: #4D90FE;
+      color: white;
+      font-weight: bold;
+      font-family: Arial regular;
+      border: 1px solid #1155CC;
+    }
+    #clear-button {
+      display: block;
+      position: absolute;
+      top: 10%;
+      width: 10%;
+      height: 80%;
+      left: 14%;
+      background-color: #4D90FE;
+      color: white;
+      font-weight: bold;
+      font-family: Arial regular;
+      border: 1px solid #1155CC;
+    }
+     #maps-icon{
+      display: block;
+      position: absolute;
+      width: 8%;
+      height: 90%;
+      right: 2%;
+      top: 8%;
+    }
+
+  </style>
+  <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" ></script>
+  <script type="text/javascript" src="dummy.js"></script>
+</head>
+<body>
+  <div id = 'title'>Google Maps Engine API Tutorial
+    <img src = "http://www.clker.com/cliparts/b/7/6/5/1308001441853739087google%20maps%20pin.svg.thumb.png" id ="maps-icon"/>
+  </div>
+  <div id = 'false-border'></div>
+  <div id = 'prev-next-bar'>
+     <input type = 'button' value = '< Prev Lesson' id = 'prev-button'>
+     <input type = 'button' value = 'Next Lesson >' id = 'next-button'>
+  </div>
+  <div id = 'instructions'>These are the instructions</div>
+  <div id = 'url'>URL:</div>
+  <textarea id = 'input-url'>https://www.googleapis.com/mapsengine/v1/tables/01512215508764088245-12798225287603138914/features?version=published&key=AIzaSyAllwffSbT4nwGqtUOvt7oshqSHowuTwN0</textarea>
+  <textarea id = 'input-js'>I AM THE JS INPUT</textarea>
+  <div id = 'output'>This is where the output goes. JSON JSON JSON.</div>
+  <div id = 'buttons'>
+    <ul id="expList">
+      <li id = "list0"> <input class = 'parent' type = "button" id = "lesson0" value="Introduction">
+        <ul>
+          <li><input class = 'child' type = "button" value="What is GME API?" id = 'lesson0-0'></li>
+          <li><input class = 'child' type = "button" value="Getting an API Key" id = 'lesson0-1'></li>
+        </ul>
+      </li>
+      <li id = "list1"> <input class = 'parent' type = "button" id = "lesson1" value="Lesson 1">
+        <ul>
+          <li id = "list1-0"><input class = 'child' type = "button" value="Lesson 1-0" id = 'lesson1-0'>
+            <ul>
+              <li><input class = 'grandchild' type = "button" value="Lesson 1-0-0" id = 'lesson1-0-0'></li>
+            </ul>
+          </li>
+          <li><input class = 'child' type = "button" value="Lesson 1-1" id = 'lesson1-1'></li>
+          <li><input class = 'child' type = "button" value="Lesson 1-2" id = 'lesson1-2'></li>
+        </ul>
+      </li>
+      <li id = "list2"> <input class = 'parent' type = "button" id = "lesson2" value="Lesson 2">
+        <ul>
+          <li><input class = 'child' type = "button" value="Lesson 2-0" id = 'lesson2-0'></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  <div id = 'button-bar'>
+    <input type = 'button' value = 'Submit' id = 'submit-button'>
+    <input type = 'button' value = 'Clear' id = 'clear-button'>
+  </div>
+</body>
+</html>
